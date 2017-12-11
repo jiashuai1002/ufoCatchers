@@ -392,6 +392,21 @@ $(".complete-btn").one("click", function() {
 	$(".mask").hide();
 })
 
+//下一步
+$(".next-step").on("click",function(){
+	TDAPP.onEvent("下一步按钮", "点击");
+	var orderList = [];
+	for (var i = 0;i < $(".value").length;i++) {
+		var oList = {
+			"ut_id":$(".value").eq(i).attr("data-id"), 
+			"num":$(".value").eq(i).val(),
+		}
+		orderList.push(oList);
+	}
+	console.log(orderList);
+	localStorage.setItem("orderList",JSON.stringify(orderList));	
+	nextToggle();
+})
 //获取娃娃机ID及相关信息
 //$.ajax({
 //		url: domainurl +"/DailyMission/getUserMission",
@@ -647,23 +662,6 @@ function getPackageWawas(param){
 					$(this).prev().val(val);
 				});
 			},350)
-			
-			
-			//下一步
-			$(".next-step").on("click",function(){
-				TDAPP.onEvent("下一步按钮", "点击");
-				var orderList = [];
-				for (var i = 0;i < $(".value").length;i++) {
-					var oList = {
-						"ut_id":$(".value").eq(i).attr("data-id"), 
-						"num":$(".value").eq(i).val(),
-					}
-					orderList.push(oList);
-				}
-				console.log(orderList);
-				localStorage.setItem("orderList",JSON.stringify(orderList));	
-				nextToggle();
-			})
 		},
 		error:function(){
 			toastMessage("网络出错");
