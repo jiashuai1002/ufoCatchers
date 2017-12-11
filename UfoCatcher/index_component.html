@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+        <link rel="stylesheet" type="text/css" href="{$Think.const.SOURCE_PATH}/css/index.css?id=79asdas55aa8797"/>
+        <link rel="stylesheet" type="text/css" href="{$Think.const.SOURCE_PATH}/css/toast.css?id=1z2aads555adaszp011"/>
+        <link href="https://cdn.bootcss.com/Swiper/4.0.1/css/swiper.min.css" rel="stylesheet">
+        <script src="http://sdk.talkingdata.com/app/h5/v1?appid={$Think.config.TD_APPID}&vn={$Think.config.TD_VN}&vc={$Think.config.TD_VC}&td_channelid={$Think.config.TD_DEFAULT_CHANNEL}"></script>
+        <include file="component_style"/>
+    </head>
+
+    <body>
+        <!--完成任务弹框部分-->
+        <include file="component_mission_complete"/>
+
+        <!--任务部分-->
+        <include file="component_missions"/>
+
+        <!--music 部分-->
+        <include file="component_music"/>
+
+        <!--加载进度条-->
+        <include file="component_process_bar"/>
+
+        <!--引导部分-->
+        <div class="yindao-box">
+            <div class="swiper-container">
+                <div class="help-btn"></div>
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"></div>
+                    <div class="swiper-slide"></div>
+                    <div class="swiper-slide"></div>
+                    <div class="swiper-slide"></div>
+                    <div class="swiper-slide"></div>
+                    <div class="swiper-slide"></div>
+                    <div class="swiper-slide"></div>
+                </div>
+            </div>
+        </div>
+        <!-- 失败TOAST部分 -->
+        <div class="failedTips"></div>
+        <!-- 主区域部分 -->
+        <div class="main-container">
+            <!--顶部轮播-->
+            <div class="top-text">原来一次就中是捡了别人的漏～</div>
+
+            <!--左侧入口区域-->
+            <div class="mask-enter">
+                <div class="task-btn"></div>
+            </div>
+
+            <!--游戏区域-->
+            <div class="game-area">
+                <!--房间人数区域-->
+                <div class="roomCounts">
+                    <div class="roomCounts-t">
+                        <div class="room-icon"></div>
+                        <div class="room-icon"></div>
+                        <div class="room-icon"></div>
+                        <div class="room-icon"></div>
+                        <div class="room-icon"></div>
+                    </div>
+                    <div class="roomCounts-b"></div>
+                </div>
+                <!--<div class="roomOnlines"></div>-->
+                <!---->
+                <div class="daojishi">30</div>
+                <!--头像弹幕部分-->               
+                <!---->
+                <div class="danmu-content">
+                    <!--<div class="danmus"></div>-->
+                </div>
+                <div class="icon-danmu">
+                    <span class="icon-danmu-ava"></span>
+                    <div class="icon-danmu-content"></div>
+                </div>              
+                <!---->
+                <div class="opacity-corner"></div>
+                <!--爪子部分-->
+                <div class="pole">
+                    <div class="gaizi"></div>
+                    <div class="ganzi"></div>
+                    <div class="wheel"></div>
+                    <div class="foot-box">
+                        <div class="foot left"></div>
+                        <div class="foot right"></div>
+                    </div>
+                </div>
+                <!--爪子阴影部分-->
+                <div class="shandow-pole"></div>
+                <!--娃娃阴影部分-->
+                <!--<div class="shandow-wawa-box">
+                    <div class="shandow-wawa"></div>
+                    <div class="shandow-wawa"></div>
+                    <div class="shandow-wawa"></div>
+                    <div class="shandow-wawa"></div>
+                </div>-->
+                <!--娃娃部分-->
+                <!--<div class="wawa-box">
+                    <div class="wawa" data-id="2" data-mcid="1"></div>
+                    <div class="wawa" data-id="2" data-mcid="1"></div>
+                    <div class="wawa" data-id="2" data-mcid="1"></div>
+                    <div class="wawa" data-id="2" data-mcid="1"></div>
+                </div>-->
+            </div>
+            <!--娃娃信息入口-->
+            <div class="wawa-message-enter"></div>
+            <!--两侧灯光装饰部分-->
+            <div class="left-bars bars"></div>
+            <div class="right-bars bars"></div>
+
+            <!--控制台部分-->
+            <div class="control-area">
+                <div class="play-box">
+                    <div class="once">40/次</div>
+                    <div class="start"></div>
+                    <div class="change"></div>
+                </div>
+                <div class="control-box hide">
+                    <div class="move-board">
+                        <div class="control-mask"></div>
+                        <div class="move-left"></div>
+                        <div class="move-top"></div>
+                        <div class="move-right"></div>
+                        <div class="move-bottom"></div>
+                    </div>
+                    <div class="catch"></div>
+                </div>
+            </div>
+
+            <!--底部区域部分-->
+            <div class="bottom-area">
+                <div class="person-text">
+                    <div class="name"></div>
+                    <div class="money"></div>
+                </div>
+                <div class="recharge icon"></div>
+                <div class="package icon"></div>
+                <div class="share icon"></div>
+                <div class="set icon"></div>
+            </div>
+        </div><!-- end / main-container-->
+
+        <!--底部蒙版部分-->
+        <div class="mask"></div>
+
+        <!--充值页面弹框部分-->
+        <include file="component_charge_modal"/>
+
+        <!--背包页面弹框部分-->
+        <div class="package-box toast-box">
+            <div class="del package-del"></div>
+            <div class="package-t">
+                <div class="mywawa"></div>
+                <div class="tiqujilu tiqujilu-off"></div>
+            </div>
+            <div class="package-m hide">
+                <div class="package-m-content">
+                    <div class="package-m-title">提取内容</div>
+                    <div class="package-m-title">当前状态</div>
+                </div>
+                <div class="package-m-contentBox">
+                    <!--<div class="package-m-content height-33">
+                        <div>
+                            <div class="package-m-name">胡子馒头狗×1</div>
+                            <div class="package-m-time">2017.11.1 15:59:15</div>
+                        </div>
+                        <div class="package-m-state">1-5天内发货</div>
+                    </div>-->
+                </div>
+            </div>
+            <div class="package-m-2">
+                <!--<div class="package-m-wawa">
+                    <div class="wawa-icon"></div>
+                    <div class="wawa-text">
+                        <i class="wawa-num"></i>
+                    </div>
+                </div>-->
+            </div>
+            <div class="tiqu-btn"></div>
+            <!--提取选择部分-->
+            <div class="package-select hide">
+                <div class="package-m-content">
+                    <div class="package-m-title">提取内容<br /><i style="font-style: normal;font-size: .25rem;font-weight: 100;">请确认提取数量</i></div>
+                </div>
+                
+                <div class="tiqu-content">
+                    <!--<div class="package-m-content height-33">
+                        <div>
+                            <div class="package-m-name">胡子馒头狗×1</div>
+                        </div>
+                        <input type="text" class="spinner"/>
+                    </div>-->
+                </div>
+                
+                <div class="package-m-content" style="position: absolute;bottom: 0;">
+                    <div class="package-m-title font-normal" style="font-size: .25rem;">提取数量不足两个需支付100金币邮费<br />一次提取两个及以上包邮</div>
+                </div>
+            </div>
+            <div class="next-step hide"></div>
+
+            <!--提取信息填写部分-->
+            <div class="package-submit hide">
+                <div class="package-m-content" style="margin-bottom: .5rem;">
+                    <div class="package-m-title">提取内容<br /><i style="font-style: normal;font-size: .25rem;font-weight: 100;">请仔细填写收货地址</i></div>
+                </div>
+                <div class="submit-list">
+                    <div class="package-m-title">姓名：</div>
+                    <input type="text" placeholder="请输入姓名" value="" class="submit-name" />
+                </div>
+                <div class="submit-list">
+                    <div class="package-m-title">电话：</div>
+                    <input type="text" placeholder="请输入手机号" value="" class="submit-phone" />
+                </div>
+                <div class="submit-list">
+                    <div class="package-m-title">地址：</div>
+                    <textarea name="" rows="" cols="" placeholder="请输入详细地址" class="submit-address"></textarea>
+                </div>
+            </div>
+            <div class="submit hide"></div>
+        </div>
+
+        <!--设置页面弹框部分-->
+        <include file="component_danmu_at_header"/>
+
+        <!--FAQ 部分-->
+        <include file="component_faq"/>
+
+        <!--换机器弹框部分-->
+        <include file="component_ufo_catcher_switcher"/>
+
+        <!--公告 / 消息部分-->
+        <include file="component_message_modal"/>
+
+        <!--娃娃信息弹框部分-->
+        <include file="component_toys_info"/>
+        
+
+        <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+        <script src="{$Think.const.SOURCE_PATH}/js/vconsole.min.js" type="text/javascript" charset="utf-8"></script> 
+        <script src="{$Think.const.SOURCE_PATH}/js/common.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript">
+
+            function log(title, data) {
+                console.log("-----" + title + " :START-----")
+                console.log(data);
+                console.log("-----END-----")
+            }
+
+            function toStringify(data)
+            {
+                return JSON.stringify(data);
+            }
+
+            //获取所有娃娃基本配置相关信息
+            var wawaMcid, wawasId,danmus,timerDanmu,danmuArr,domainurl,timerIconDanmu;
+            danmuArr = [];
+            wawaMcid = {$ufos};
+            wawasId = {$ufoToys};
+            danmus = {$slogans};
+            //测试服 || 正式服 domainURL
+            domainurl = 'http://h5test02.zhuoyi.com:18808/ufo_catcher/index.php/Home'
+            // domainurl = 'http://money.zhuoyi.com/ufo_catcher/index.php/Home/'
+//          console.log("-----------弹幕---------")
+//          console.log(JSON.stringify(danmus));
+//          console.log("mcIdNums")
+//          console.log(wawaMcid);
+//          console.log(wawasId);
+//          console.log("{:U("")}")
+//          console.log(document.domain);
+            var ufoCatchers = wawaMcid;
+            var toys = wawasId;         
+            function Dictionary()
+            {
+                this.data = [];
+
+                /**
+                 * [put 加入]
+                 * @param  {[type]} key   [ufo id]
+                 * @param  {[type]} value [ufo cost]
+                 * @return {[type]}       [description]
+                 */
+                this.put = function(key,value){
+                    this.data[key] = value;
+                };
+
+                /**
+                 * [get description]
+                 * @param  {[type]} key [ufo id]
+                 * @return {[type]}     [description]
+                 */
+                this.get = function(key){
+                    return this.data[key];
+                };
+
+                this.remove = function(key){
+                    this.data[key] = null;
+                };
+
+                this.isEmpty = function(){
+                    return this.data.length === 0;
+                };
+
+                this.has = function(key){
+                    var v = this.get(key);
+                    return v !== undefined;
+                };
+
+                this.size = function(){
+                    return this.data.length;
+                };
+            }
+
+            var ufoCostMap = new Dictionary();
+            var formatedUfoCatchers = new Dictionary();
+
+            for (var i in ufoCatchers)
+            {
+                ufoCostMap.put(parseInt(ufoCatchers[i]['uc_id']), ufoCatchers[i]['uc_cost']);
+                formatedUfoCatchers.put(parseInt(ufoCatchers[i]['uc_id']), ufoCatchers[i]);
+            }
+
+
+
+            /**
+             * [formatedUfoToys description]
+             * 
+             * [{ufo_id =>[{toy}]}, ]
+             * 
+             * @type {Dictionary}
+             */
+            var formatedUfoToys = new Dictionary();
+
+            /**
+             * [newToys description]
+             * 
+             * [{toy_id =>{toy}}, ]
+             * 
+             * @type {Dictionary}
+             */
+            var newToys = new Dictionary();
+
+            var len =toys.length;
+//          for (var i in toys)
+//          {
+//              toys[len++] = toys[i];
+//          }
+
+            // console.log(toys);
+            for (var i in toys)
+            {   
+                var ufoId          = parseInt(toys[i]['uc_id']);
+                var tmpFormatedToy = [];
+
+                if(typeof tmpFormatedToy[ufoId] == 'undefined'){
+                    tmpFormatedToy[ufoId] = [];
+                }
+
+                if (formatedUfoToys.has(ufoId)) {
+                    tmpFormatedToy[ufoId] = formatedUfoToys.get(ufoId);
+                }
+
+                // console.log('empty')
+                tmpFormatedToy[ufoId][i] = toys[i];
+                formatedUfoToys.put(ufoId,tmpFormatedToy[ufoId]);
+
+//              newToys.put(parseInt(toys[i]['uc_id']), ufoCatchers[i]);
+                newToys.put(parseInt(toys[i]['ut_id']), toys[i]);
+            }
+            
+            log("newToys:9", toStringify(newToys.get(9)))
+            console.log()
+            wawasId = formatedUfoToys;
+//          var mcArr = [];
+//          var wawasArr = [];
+//          for (var i = 0;i<wawaMcid.length;i++) {
+//                  mcArr.push(wawaMcid[i])
+//          }
+            
+//          console.log("546464646" +wawasId.get(1))
+            console.log("---------1234567-------------")
+            console.log(wawaMcid)
+            var wawaHtml = '',shandowHtml = '',changeHtml = '';
+            for (var i = 0;i<wawaMcid.length;i++) {
+                wawaHtml += "<div class='wawa-box' data-mcid='" + wawaMcid[i].uc_id + "' data-cost='" + wawaMcid[i].uc_cost + "'>";
+                shandowHtml += '<div class="shandow-wawa-box">';
+                changeHtml += '<div class="change-m-wawa" data-mcid="' + wawaMcid[i].uc_id + '" data-cost="' + wawaMcid[i].uc_cost + '">' + 
+                                    '<div class="change-wawa-icon" style="background-image:url(' +wawaMcid[i].uc_icon +')"></div>' + 
+                                    '<div class="change-wawa-text">' + wawaMcid[i].uc_title + 
+                                        '<br /><i class="change-wawa-num">' + parseInt(wawaMcid[i].uc_cost) + '/次</i>&nbsp;&nbsp;&nbsp;<i class="change-wawa-size">约' + parseInt(wawaMcid[i].uc_size) + '厘米</i>' + 
+                                    '</div>' + 
+                                    '<div class="hot-icon" style="background-image:url(' +wawaMcid[i].uc_hot_icon + ')"></div>' + 
+                                '</div>';
+                var count = 0;
+                for(var z = 0 ; z <7;z++){
+                    if (count>6) {
+                            break;
+                        }
+                    for (var j in wawasId.get(wawaMcid[i].uc_id)) {
+                        if (count>6) {
+                            break;
+                        }
+                        wawaHtml +=  "<div class='wawa' style='background-image:url(" +wawasId.get(wawaMcid[i].uc_id)[j].ut_icon + ")'  data-id=" +wawasId.get(wawaMcid[i].uc_id)[j].ut_id+ " data-mcid=" +wawasId.get(wawaMcid[i].uc_id)[j].uc_id+ "></div>";
+                        shandowHtml += '<div class="shandow-wawa"></div>';
+                        count++;
+                    }
+                }
+                
+                wawaHtml +=  "</div>";
+                shandowHtml += '</div>';
+            }
+            
+            $(".game-area").append(shandowHtml);
+            $(".game-area").append(wawaHtml);
+            $(".change-content").append(changeHtml);
+            //随机显示四个换台机器列表里的机器\
+            function changeMc(){
+                var changeStartNum = Math.floor(Math.random()*wawaMcid.length+1);
+                $(".change-m-wawa").hide();
+                for(var i = changeStartNum ; i<changeStartNum + 4;i++){
+                    $(".change-m-wawa").eq(i%wawaMcid.length).show();
+                }
+            }
+            changeMc();
+//          $(".shandow-wawa-box").eq(0).show().siblings(".shandow-wawa-box").hide();
+//          $(".wawa-box").eq(0).show().siblings(".wawa-box").hide();
+        </script>
+        <!--<script src="{$Think.const.SOURCE_PATH}/js/pageloader.js" type="text/javascript" charset="utf-8"></script>-->
+        <script src="{$Think.const.SOURCE_PATH}/js/resLoader.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript">
+            //祛除新手引导
+            var isHelp = localStorage.getItem("isHelpTips") || '';
+            if(isHelp==="ok"){
+                $(".yindao-box").remove();
+            }
+            var h = location.host;
+            console.log(h)
+            var loader = new resLoader({
+                resources: [
+                    '../../../../{$Think.const.SOURCE_PATH}/../../../../{$Think.const.SOURCE_PATH}/images/loader-bg.jpg',
+                    '../../../../{$Think.const.SOURCE_PATH}/../../../../{$Think.const.SOURCE_PATH}/images/ng-m.mp3',
+                    '../../../../{$Think.const.SOURCE_PATH}/images/loader-title.png',
+                    '../../../../{$Think.const.SOURCE_PATH}/images/loader-avator.png',
+                    '../../../../{$Think.const.SOURCE_PATH}/images/loader-notice.png', 
+                    '../../../../{$Think.const.SOURCE_PATH}/images/loading1.png',
+                    '../../../../{$Think.const.SOURCE_PATH}/images/loading2.png',
+                    '../../../../{$Think.const.SOURCE_PATH}/images/newhelp1.jpg',
+                    '../../../../{$Think.const.SOURCE_PATH}/images/newhelp2.jpg',
+                    '../../../../{$Think.const.SOURCE_PATH}/images/newhelp3.jpg',
+                    '../../../../{$Think.const.SOURCE_PATH}/images/newhelp4.jpg',
+                    '../../../../{$Think.const.SOURCE_PATH}/images/newhelp5.jpg',
+                    '../../../../{$Think.const.SOURCE_PATH}/images/newhelp6.jpg',
+                    '../../../../{$Think.const.SOURCE_PATH}/images/newhelp7.jpg',
+                    '../../../../{$Think.const.SOURCE_PATH}/images/newhelpbutton.png',
+                    '../../../../{$Think.const.SOURCE_PATH}/images/ban.png',
+                    '../../../../{$Think.const.SOURCE_PATH}/images/bars.png',
+                    '../../../../{$Think.const.SOURCE_PATH}/images/board-bg.png',
+                    '../../../../{$Think.const.SOURCE_PATH}/images/opacity-corner.png',
+                    '../../../../{$Think.const.SOURCE_PATH}/images/btn-catch.png',
+                    '../../../../{$Think.const.SOURCE_PATH}/images/btn-change.png',
+                    '../../../../{$Think.const.SOURCE_PATH}/images/btn-direction.png',
+                    '../../../../{$Think.const.SOURCE_PATH}/images/chongzhibg.png',
+                    '../../../../{$Think.const.SOURCE_PATH}/images/del.png',
+                    '../../../../{$Think.const.SOURCE_PATH}/images/gaizi.png',
+                    '../../../../{$Think.const.SOURCE_PATH}/images/gamebg.png',
+                    '../../../../{$Think.const.SOURCE_PATH}/images/ganzi.png',
+                    '../../../../{$Think.const.SOURCE_PATH}/images/icon-package.png',
+                    '../../../../{$Think.const.SOURCE_PATH}/images/icon-recharge.png',
+                    '../../../../{$Think.const.SOURCE_PATH}/images/icon-set.png',
+                    '../../../../{$Think.const.SOURCE_PATH}/images/icon-share.png',
+                    '../../../../{$Think.const.SOURCE_PATH}/images/line.png',
+                    '../../../../{$Think.const.SOURCE_PATH}/images/loader-avator.png',
+                    '../../../../{$Think.const.SOURCE_PATH}/images/loader-notice.png',
+                    '../../../../{$Think.const.SOURCE_PATH}/images/loader-title.png',
+                    '../../../../{$Think.const.SOURCE_PATH}/images/money-bg.png',
+                    '../../../../{$Think.const.SOURCE_PATH}/images/money-noce.png',
+                    '../../../../{$Think.const.SOURCE_PATH}/images/move-bottom.png',
+                    '../../../../{$Think.const.SOURCE_PATH}/images/move-left.png',
+                    '../../../../{$Think.const.SOURCE_PATH}/images/move-right.png',
+                    '../../../../{$Think.const.SOURCE_PATH}/images/move-top.png',
+                    '../../../../{$Think.const.SOURCE_PATH}/images/mywa.png',
+                    '../../../../{$Think.const.SOURCE_PATH}/images/mywaoff.png',
+                    '../../../../{$Think.const.SOURCE_PATH}/images/next.png',
+                    '../../../../{$Think.const.SOURCE_PATH}/images/package-bg.png',
+                    '../../../../{$Think.const.SOURCE_PATH}/images/paws-l.png',
+                    '../../../../{$Think.const.SOURCE_PATH}/images/paws-r.png',
+                    '../../../../{$Think.const.SOURCE_PATH}/images/pics.png',
+                    '../../../../{$Think.const.SOURCE_PATH}/images/recharge-b.png',
+                    '../../../../{$Think.const.SOURCE_PATH}/images/recharge-btn1.png',
+                    '../../../../{$Think.const.SOURCE_PATH}/images/recharge-btn2.png',
+                    '../../../../{$Think.const.SOURCE_PATH}/images/recharge-btn3.png',
+                    '../../../../{$Think.const.SOURCE_PATH}/images/recharge-btn4.png',
+                    '../../../../{$Think.const.SOURCE_PATH}/images/recharge-icon1.png',
+                    '../../../../{$Think.const.SOURCE_PATH}/images/recharge-icon2.png',
+                    '../../../../{$Think.const.SOURCE_PATH}/images/recharge-icon3.png',
+                    '../../../../{$Think.const.SOURCE_PATH}/images/recharge-icon4.png',
+                    '../../../../{$Think.const.SOURCE_PATH}/images/shandow-pole.png',
+                    '../../../../{$Think.const.SOURCE_PATH}/images/shandow-wawa.png',
+                    '../../../../{$Think.const.SOURCE_PATH}/images/start.png',
+                    '../../../../{$Think.const.SOURCE_PATH}/images/submit.png',
+                    '../../../../{$Think.const.SOURCE_PATH}/images/tiqu.png',
+                    '../../../../{$Think.const.SOURCE_PATH}/images/tiquoff.png',
+                    '../../../../{$Think.const.SOURCE_PATH}/images/tiquwawa.png',
+                    '../../../../{$Think.const.SOURCE_PATH}/images/wawa.png',
+                    '../../../../{$Think.const.SOURCE_PATH}/images/wheel-mid.png',
+                    '../../../../{$Think.const.SOURCE_PATH}/images/ww-mainbg.png',
+                ],
+                onStart: function(total) {
+                    console.log('start:'+total);
+                },
+                onProgress : function(current, total){
+                    // console.log(current+'/'+total);
+                    var percent = current/total*100;
+                    $('.progressbar').css('width', percent+'%');
+//                  $('.progresstext .current').text(current);
+//                  $('.progresstext .total').text(total);
+                },
+                onComplete : function(total){
+                    setTimeout(function(){$(".loaders").fadeOut();},1500)
+                    
+                }
+            });
+            //
+            loader.start();
+
+            $(".swiper-slide").on("click",function(){
+                TDAPP.onEvent("新手操作点击", "点击");
+                $(this).hide();
+                var index_ = $(this).index();
+                if (index_ == '6') {
+                    $(".yindao-box").fadeOut();
+                    localStorage.setItem("isHelpTips","ok")
+                };
+            });
+            $(".help-btn").on("click",function(){
+                TDAPP.onEvent("推出引导按钮", "点击");
+              $(".yindao-box").fadeOut();
+              localStorage.setItem("isHelpTips","ok")
+            });
+            function insertDanmu(pMessage){
+                var box_f = document.getElementsByClassName("danmu-content")[0];
+                var box = document.createElement("div");
+                var key = Math.ceil(Math.random()*2)
+                if (key == 1) {
+                    box.setAttribute("class", "danmu-move danmus");
+                }
+                if (key == 2) {
+                    box.setAttribute("class", "danmu-move danmus pink");
+                }
+                
+                box.innerHTML = pMessage;
+                var topNum = Math.floor(Math.random()*75);
+                box_f.appendChild(box);
+                
+                var oWidth = $(box).innerWidth();
+                $(box).css({
+                    width : oWidth,
+                    top : topNum,
+                })
+                removeDanmuElmt()
+                box.addEventListener("webkitAnimationEnd", function() {
+                    box_f.removeChild(box);
+                })
+            }
+            /**
+             * @name  弹幕超过8条就移除
+             */
+            function removeDanmuElmt(){
+                var elmts = $('.danmu-move');
+                var needRemoveSize = elmts.length - 8;
+                var i = 0;
+                $(elmts).each(function(){
+                  i++;
+                  if(i>needRemoveSize){
+                    return;
+                  }
+                  $(this).remove();
+                });
+            }
+            //娃娃信息
+        </script>
+        <script src="{$Think.const.SOURCE_PATH}/js/timeago.js?id=1z1wz11211a1ss1" type="text/javascript" charset="utf-8"></script>
+        <script src="{$Think.const.SOURCE_PATH}/js/game.js?id=1z1wsssz11211a1ss1" type="text/javascript" charset="utf-8"></script>
+        <script src="{$Think.const.SOURCE_PATH}/js/index.js?id=1123sa13" type="text/javascript" charset="utf-8"></script>
+        <script src="{$Think.const.SOURCE_PATH}/js/vconsole.min.js" type="text/javascript" charset="utf-8"></script> 
+        <script type="text/javascript">
+            
+            /**
+             * @name 开始公告
+             */
+            function openAnnounce(){
+                $.ajax({
+                        url: domainurl +"/Message/getAll",
+                        method: "POST",
+                        data: {
+//                          "id": 0,
+                        },
+                        success: function(data) {
+                            data = JSON.parse(data);
+                            if (data.error !== 0) {
+                                toastMessage(data.message)
+                                return;
+                            };
+                            console.log("---------公告获取-----------")
+                            console.log(data)
+                            var result = data.list;
+                            var html = "";
+                            if (result.length != 0) {
+                                for (var i  = 0 ; i < result.length; i++) {
+                                    html += 
+                                    '<div class="announce-content">' + 
+                                        '<div class="announce-title">' + result[i].msg_title + '</div>' + 
+                                        '<div class="announce-desc">' + result[i].msg_desc.replace(/\r\n/g,"<br>") + '</div>' + 
+                                    '</div>';
+                                }
+                                $(".announce-content-box").html(html);
+                            }
+                        },
+                        error:function(){
+                            toastMessage("网络出错");
+                        }
+                });
+                $(".mask").show();
+                $(".announce-box").show();
+            }
+            var speakKey = true;
+//          开启公告
+            openAnnounce();
+            function wawaSpeak(){
+                var oDom = $(".act .wawa");
+//              oDom.empty();
+                
+                if (speakKey) {
+                    var total = parseInt(Math.random() * 9);
+                    var total1 = parseInt(Math.random() * $(".act .wawa").length);
+                    var ospeak = document.createElement("div");
+                    $(ospeak).addClass("speak-pop stay" + total);
+                    oDom.eq(total1).append(ospeak);
+                    setTimeout(function(){
+                        $(ospeak).remove();
+                    },3500)
+                }
+                
+                var timerWawa = setTimeout(wawaSpeak,4000);
+            }
+            wawaSpeak();
+            function upFace(pDom){
+                var total = parseInt(Math.random() * 4) + 1;
+                var ospeak = document.createElement("div");
+                $(ospeak).addClass("speak-pop upface" + total);
+                console.log($(ospeak).attr("class"))
+                pDom.append(ospeak);
+                setTimeout(function(){
+                    pDom.empty();
+                },1800)
+            }
+            function downFace(pDom){
+                var total = parseInt(Math.random() * 4) + 1;
+                var ospeak = document.createElement("div");
+                $(ospeak).addClass("speak-pop downface" + total);
+                console.log($(ospeak).attr("class"))
+                pDom.append(ospeak);
+                setTimeout(function(){
+                    pDom.empty();
+                },2000)
+            }
+            //顶部弹幕轮播  
+            var topDanmuTimer = setInterval(function(){
+                var arr = ['原来一次中就是捡了别人的漏啊' ,'抓了很多次别放弃！下一次中奖就是你！'   ,'所有娃娃都是有限量的！想要的趁早了！'   ,'别人抓了很多次，中奖概率会大幅提高！'   ,'超过五天未发货将会获赔我们的神秘娃娃！',];
+                var total = parseInt(Math.random()*arr.length);
+                $(".top-text").text(arr[total]);
+            },3000)
+        </script>
+        <script type="text/javascript">
+            //@TODO updata balance
+//          var updateDataInfo = {
+//              source : "web_send",
+//              path : "balance"
+//          };
+//          dataInfo = JSON.stringify(updateDataInfo);
+//          window.postMessage(dataInfo);
+//          console.log("向rn发送更新balance请求++++htmlend");
+            /**
+             * @name  判断对象是否为空 
+             * @param {Object} e
+             */
+            function isEmptyObject(e) {  
+                var t;  
+                for (t in e)  
+                    return !1;  
+                return !0  
+            }  
+            function openDailyTask(){
+                alert("123456")
+                $.ajax({
+                        url: domainurl +"/DailyMission/getUserMission",
+                        method: "POST",
+                        data: {
+                            "user_id": localStorage.getItem("userId"),
+                            "date" : dateformat
+                        },
+                        success: function(data) {
+                            data = JSON.parse(data);
+                            if (data.error !== 0) {
+                                toastMessage(data.message)
+                                return;
+                            };
+                            console.log("---------任务列表result-----------")
+                            console.log(data)
+                            //判断用户是否满分
+                            
+                            //设置顶部积分进度条相关
+                            $(".mask-bar").animate({
+                                left:(data.list.userDailyScore-100) + "%"
+                            },300 )
+                            $(".bar-score").text( data.list.userDailyScore + "/100")
+                            var resultFd = data.list.finished;
+//                          console.log(resultFd[1].utl_status == 0)
+                            console.log(resultFd.length)
+                            var resultUfd = data.list.unfinished;
+                            var resultFdHtml = '',resultFd1Html = '',resultUfdHtml = '';
+                            var f1=[],f2=[],f3=[],fa=[];
+                            //绘制已完成任务resultFd
+                            if (!isEmptyObject(resultFd)) {
+                                for (var i in resultFd) {
+                                    if(resultFd[i].utl_status == 0){
+                                        fa.push(resultFd[i])
+                                        for (var j in fa) {
+                                            if(fa[j].utl_cat_id==1){
+                                                f1.push(fa[j])
+                                            }
+                                            if(fa[j].utl_cat_id==2){
+                                                f2.push(fa[j])
+                                            }
+                                            if(fa[j].utl_cat_id==3){
+                                                f3.push(fa[j])
+                                            }
+                                        }
+                                    }
+                                    else if (resultFd[i].utl_status == 1) {
+                                        resultFd1Html += 
+                                            '<div class="mask-content">' + 
+                                                '<div class="mask-icon" style="background-image:url(' +resultFd[i].task_icon + ')"></div>' + 
+                                                '<div class="mask-text">' + 
+                                                    '<div class="mask-title">' + resultFd[i].task_title + '</div>' + 
+                                                    '<span class="mask-score">奖励：金币X' + resultFd[i].task_bonus_score + ' </span>' + 
+                                                    '<span class="mask-coin">任务积分：X' + resultFd[i].task_bonus_coin + ' </span>' + 
+                                                '</div>' + 
+                                                '<div class="mask-btn mask-status1"></div>' + 
+                                            '</div>';   
+                                    }
+                                }
+                            }
+                            var u1=[],u2=[],u3=[];
+                            //绘制未完成任务resultUfd
+                            for (var i = 0,len = resultUfd.length;i < len;i++) {
+                                if(resultUfd[i].task_cat_id == "1"){
+                                    u1.push(resultUfd[i])
+                                }
+                                if(resultUfd[i].task_cat_id == "2"){
+                                    u2.push(resultUfd[i])
+                                }
+                                if(resultUfd[i].task_cat_id == "3"){
+                                    u3.push(resultUfd[i])
+                                }
+                            }
+                            resultUfdHtml = getUnfinishedList(u1.shift()) + getUnfinishedList(u2.shift()) + getUnfinishedList(u3.shift())
+                            resultFdHtml  = getfinishedList(f1.shift()) + getfinishedList(f2.shift()) + getfinishedList(f3.shift())
+                            console.log(f1.shift());
+                            console.log(f2.shift());
+                            console.log(f3.shift());
+                            console.log(fa)
+                            $(".mask-content-box").empty();
+                            $(".mask-content-box").append(resultFdHtml);
+//                          console.log("--------resultFdHtml----------------")
+//                          console.log(resultFdHtml)
+                            $(".mask-content-box").append(resultUfdHtml);
+                            $(".mask-content-box").append(resultFd1Html);
+                        },
+                        complete:function(){
+                            $(".mask-status0").on("click",function(){
+                                TDAPP.onEvent("任务部分【领取】", "点击");
+//                              $(".mask-box").show();
+//                              $(".mask").show();
+//                              openDailyTask();
+                                $.ajax({
+                                        url: domainurl +"/DailyMission/receiveBonus",
+                                        method: "POST",
+                                        data: {
+                                            "user_id": $(this).attr("data-userid"),
+                                            "task_id" : $(this).attr("data-taskid"),
+                                            "category_id" : $(this).attr("data-catid")
+                                        },
+                                        success: function(data) {
+                                            data = JSON.parse(data);
+                                            if (data.error !== 0) {
+                                                toastMessage(data.message)
+                                                return;
+                                            };
+                                            console.log("---------领取任务result-----------")
+                                            console.log(data)
+                                            openDailyTask();
+                                            if (data.mission.toyId != 0 ) {
+                                                getCompleteToast(data.mission.toyId)
+                                                $(".mask-box").hide();
+                                            }
+                                        },
+                                        complete:function(){
+                                            
+                                        },
+                                        error:function(){
+                                            toastMessage("网络出错");
+                                        }
+                                });
+                            })
+                        },
+                        error:function(){
+                            toastMessage("网络出错");
+                        }
+                });
+            }
+            
+            /**
+             * @name 获取未完成任务列表
+             * @param {Object} param
+             */
+            function getUnfinishedList(param){
+                var html = '';
+                if (param != undefined) {
+                                html += 
+                                '<div class="mask-content">' + 
+                                    '<div class="mask-icon" style="background-image:url(' +param.task_icon + ')"></div>' + 
+                                    '<div class="mask-text">' + 
+                                        '<div class="mask-title">' + param.task_title + '</div>' + 
+                                        '<span class="mask-score">奖励：金币X' + param.task_bonus_score + ' </span>' + 
+                                        '<span class="mask-coin">任务积分：X' + param.task_bonus_coin + ' </span>' + 
+                                    '</div>' + 
+                                    '<div class="mask-btn">未达成</div>' + 
+                                '</div>'
+                            }else{
+                                html = '';
+                            }
+                return html
+            }
+            /**
+             * @name 获取已完成（未领取）任务列表
+             * @param {Object} param
+             */
+            function getfinishedList(param){
+                var html = '';
+                if (param != undefined) {
+                                html += 
+                                '<div class="mask-content">' + 
+                                    '<div class="mask-icon" style="background-image:url(' +param.task_icon + ')"></div>' + 
+                                    '<div class="mask-text">' + 
+                                        '<div class="mask-title">' + param.task_title + '</div>' + 
+                                        '<span class="mask-score">奖励：金币X' + param.task_bonus_score + ' </span>' + 
+                                        '<span class="mask-coin">任务积分：X' + param.task_bonus_coin + ' </span>' + 
+                                    '</div>' + 
+                                    '<div class="mask-btn mask-status0" data-taskid="' +param.task_id + '" data-catid="' + param.utl_cat_id + '" data-userid="' + param.utl_user_id + '"></div>' + 
+                                '</div>';
+                            }else{
+                                html = '';
+                            }
+                return html
+            }
+//          alert(JSON.stringify(wawasId.get(9)))
+//          alert(JSON.stringify(wawasId.get(9).ut_name))
+//          alert(JSON.stringify(wawasId.get(9).ut_cover_img))
+            /**
+             * @name 每日任务积分完成
+             * @param {Object} pId
+             */
+            function getCompleteToast(pId){
+                var oMessage  = newToys.get(pId);
+                console.log("+---------omessage-----")
+                console.log(oMessage)
+                $(".complete-icon").css("background-image","url(" + oMessage.ut_cover_img +")");
+                $(".complete-text").text("恭喜您获得一个" + oMessage.ut_name + '，已经放进您的背包。');
+                $(".mask").show();
+                $(".complete-box").show();
+            }
+            $(".complete-btn").one("click",function(){
+                    TDAPP.onEvent("炫耀一下按钮", "点击");
+                    var dataInfo = {
+                        source : "web_send",
+                        path : "share",
+                        data : {
+                            "shareUrl": domainurl +"/UfoCatcher/share",
+                            "shareIcon":"http://money.zhuoyi.com/ufo_catcher/Public/home/images/wawaShareIcon.jpg",
+                            "shareTitle":"抓娃娃就上汤姆娃娃机，抓个娃娃还能寄回家",
+                            "shareContent":"做全国最好玩的线上娃娃机，随时随地享受抓娃娃的乐趣！",
+                        }
+                    };
+                    dataInfo = JSON.stringify(dataInfo);
+                    window.postMessage(dataInfo);
+                    //@TODO updata balance
+                    var updateDataInfo = {
+                        source : "web_send",
+                        path : "balance",
+                    };
+                    dataInfo1 = JSON.stringify(updateDataInfo);
+                    setTimeout(function(){window.postMessage(dataInfo1);},119)
+                    console.log("向rn发送更新balance请求")
+                    //完成弹框 关闭
+                    $(".complete-box").hide();
+                    $(".mask").hide();
+                })
+        </script>
+    </body>
+</html>

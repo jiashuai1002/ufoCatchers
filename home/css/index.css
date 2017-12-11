@@ -1,0 +1,401 @@
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	-webkit-touch-callout:none;
+  	-webkit-user-select:none;
+  	-moz-user-select:none;
+  	-ms-user-select:none;
+  	user-select:none;
+}
+*::-webkit-scroll { display: none }
+body,html{
+	width: 100%;
+	height: 100%;
+	overflow-x: hidden;
+}
+.main-container{
+	width: 100%;
+	height: 100%;
+	background-image: url(../images/ww-mainbg.png);
+	background-size: 100% 100%;
+	position: relative;
+}
+.top-text{
+	width: 3.65rem;
+	height: 0.38rem;
+	margin: 0 auto;
+	font-size:0.26rem;
+	color:#f957a8;
+    padding-top: 0.05rem;
+}
+.game-area{
+	width: 5.73rem;
+	height: 8.06rem;
+	margin: 0 auto;
+	background-image: url(../images/gamebg.png);
+	background-size: 100% 100%;
+	position: relative;
+	overflow: hidden;
+	padding: 0.12rem;
+    padding-top: 0.07rem;
+}
+.bars{
+    position: absolute;
+    width: 0.5rem;
+    height: 8rem;
+    background-image: url(../images/bars.png);
+    background-size: 100% 100%;
+    top: 0.5rem;
+}
+.left-bars{
+	left: -0.02rem;
+}
+.right-bars{
+	right: -0.05rem;
+}
+.pole{
+	width: 34%;
+    height: 44%;
+	position: relative;
+	top: 0;
+	left: 0;
+    padding: 0 0.3rem;
+    padding-bottom: .3rem;
+    z-index: 10;
+}
+.gaizi{
+	width: 100%;
+	height: 0.36rem;
+	background-image: url(../images/gaizi.png);
+	background-size: 100% 100%;
+}
+.ganzi{
+    width: 10%;
+    height: 30%;
+    margin: 0 auto;
+    background-image: url(../images/ganzi.png);
+    background-size: 100% 100%;
+}
+.wheel{
+    width: 56%;
+    height: 27%;
+    background-image: url(../images/wheel-mid.png);
+    background-size: 100% 100%;
+    margin: 0 auto;
+    margin-top: -.1rem;
+    position: relative;
+    z-index: 1;
+}
+.foot-box{
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    margin-top: -38%;
+    position: relative;
+}
+.foot{
+    position: absolute;
+    width: 65%;
+    height: 37%;
+    background-size: 100% 100%;
+    -webkit-transform-origin: top center;
+    -webkit-transition: -webkit-transform 0.6s;
+}
+.left{
+    float: left;
+    left: -8%;
+    background-image: url(../images/paws-l.png);
+    -webkit-transform: rotate(15deg);
+}
+.right{
+	left: 41%;
+    background-image: url(../images/paws-r.png);
+    -webkit-transform: rotate(-15deg); 
+    margin-top: -1%;
+}
+.shandow-pole{
+	position: absolute;
+    width: 1.67rem;
+    height: 0.68rem;
+    background-image: url(../images/shandow-pole.png);
+    background-size: 100% 100%;
+    top: 75%;
+    left: 0;
+    opacity: .4;
+    margin-left: 0.1rem;
+}
+.shandow-wawa{
+	position: absolute;
+    width: 1.67rem;
+    height: 0.68rem;
+    background-image: url(../images/shandow-wawa.png);
+    background-size: 100% 100%;
+    top: 5.4rem;
+    left: 7%;
+}
+.shandow-wawa:nth-of-type(2){
+	left: 38%;
+}
+.shandow-wawa:nth-of-type(3){
+	left: 69%;
+}
+.shandow-wawa:nth-of-type(4){
+	left: 22%;top: 78%;
+}
+.shandow-wawa:nth-of-type(5){
+	left: 57%;top: 78%;
+}
+.shandow-wawa:nth-of-type(6){
+	left: 33%;top: 90%;
+}
+.shandow-wawa:nth-of-type(7){
+	left: 64%;top: 90%;
+}
+.bottom-area{
+	width: 100%;
+	height: 1.3rem;
+	position: absolute;
+	bottom: 0;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-pack: distribute;
+	    justify-content: space-around;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+}
+.bottom-area>div{
+	float: left;
+}
+.person-text{
+	width: 2rem;
+	height: 1rem;
+}
+.icon{
+	width: 1.03rem;
+	height: 1.03rem;
+	background-size: 100% 100%;
+	margin-top: 0.08rem;
+}
+.recharge{
+	background-image: url(../images/icon-recharge.png);
+}
+.share{
+	background-image: url(../images/icon-share.png);
+}
+.package{
+	background-image: url(../images/icon-package.png);
+}
+.set{
+	background-image: url(../images/icon-set.png);
+}
+.name{
+	width: 1.53rem;
+	height: 0.37rem;
+	font-size:0.26rem;
+	color:#ffffff;
+	margin-top: 0.1rem;
+	margin-bottom: 0.05rem;
+}
+.money{
+	width: 2.03rem;
+	height: 0.54rem;background-image: url(../images/money-bg.png);
+	background-size: 100% 100%;
+	font-size: .3rem;
+    color: white;
+    text-align: center;
+    line-height: 0.54rem;
+}
+.control-area{
+    width: 100%;
+    height: 17%;
+    position: absolute;
+    bottom: 1.1rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+.wawa{
+	position: absolute;
+	width: 1.25rem;
+	height: 1.63rem;
+	background-image: url(../images/wawa.png);
+	background-size: 100% 100%;
+	top: 52%;
+    left: 11%;
+}
+.wawa:nth-of-type(2){
+	left: 41%;z-index: 3;
+}
+.wawa:nth-of-type(3){
+	left: 72%;z-index: 3;
+}
+.wawa:nth-of-type(4){
+	left: 25%;top: 64%;z-index: 4;
+}
+.wawa:nth-of-type(5){
+	left: 61%;top: 64%;z-index: 4;
+}
+.wawa:nth-of-type(6){
+	left: 37%;top: 76%;z-index: 5;
+}
+.wawa:nth-of-type(7){
+	left: 67%;top: 76%;z-index: 5;
+}
+.bihe{
+	-webkit-transform: rotate(0deg);
+}
+.red{
+	background-image: url(../images/ssssss.png);
+}
+.hide{
+	display: none!important;
+}
+.control-box{
+	width: 100%;
+	height: 100%;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-pack: distribute;
+	    justify-content: space-around;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+}
+.play-box{
+	width: 100%;
+	height: 100%;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-pack: distribute;
+	    justify-content: space-around;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+}
+.once{
+	text-align: center;
+	line-height: 0.79rem;
+	font-size:0.24rem;
+	color:#ffffff;
+	width: 1.28rem;
+	height: 0.79rem;
+	background-image: url(../images/money-noce.png);
+	background-size: 100% 100%;
+	margin-left: .3rem;
+	padding-left: .3rem;
+}
+.start{
+	width: 3.56rem;
+	height: 1.27rem;
+	background-image: url(../images/start.png);
+	background-size: 100% 100%;
+}
+.change{
+	width: 1.46rem;
+	height: 1.13rem;
+	background-image: url(../images/btn-change.png);
+	background-size: 100% 100%;
+	margin-right: .3rem;
+}
+.move-board{
+	width: 2.89rem;
+	height: 1.63rem;
+	background-image: url(../images/board-bg.png);
+	background-size: 100% 100%;
+	margin-bottom: .3rem;
+	position: relative;
+    margin-left: .3rem;
+}
+.catch{
+	width: 2.3rem;
+	height: 1.64rem;
+	background-image: url(../images/btn-catch.png);
+	background-size: 100% 100%;
+	margin-right: .2rem;
+	margin-bottom: .2rem;
+}
+.move-top{
+	position: absolute;
+	width:0.89rem;
+	height: 0.72rem;
+	background-image: url(../images/move-top.png);
+	background-size: 100% 100%;
+	top: 0%;
+    left: 35%;
+    /*z-index: 120;*/
+}
+.move-bottom{
+	position: absolute;
+	width:1.14rem;
+	height: 0.89rem;
+	background-image: url(../images/move-bottom.png);
+	background-size: 100% 100%;
+    bottom: 10%;
+    left: 28%;
+    z-index: 2;
+}
+.move-left{
+	position: absolute;
+	width:1.26rem;
+	height: 0.64rem;
+	background-image: url(../images/move-left.png);
+	background-size: 100% 100%;
+	top: 20%;
+    left: 4%;
+    z-index: 1;
+}
+.move-right{
+	position: absolute;
+	width:1.26rem;
+	height: 0.64rem;
+	background-image: url(../images/move-right.png);
+	background-size: 100% 100%;
+	left: 50%;
+    top: 20%;
+    /*z-index: 120;*/
+}
+.opacity-corner {
+	width: 2rem;
+	height: 1.9rem;
+	background-image: url(../images/opacity-corner.png);
+	background-size: 100% 100%;
+	position: absolute;
+	bottom: 0.12rem;
+    left: 0.1rem;
+	z-index: 6;
+}
+.foot-box {
+	-webkit-transform-origin: top center;
+	    -ms-transform-origin: top center;
+	        transform-origin: top center;
+	-webkit-transition: -webkit-transform 300ms;
+	transition: -webkit-transform 300ms;
+	-o-transition: transform 300ms;
+	transition: transform 300ms;
+	transition: transform 300ms, -webkit-transform 300ms;
+}
+
+.go-left {
+	-webkit-transform: rotate(15deg);
+	    -ms-transform: rotate(15deg);
+	        transform: rotate(15deg);
+}
+
+.go-right {
+	-webkit-transform: rotate(-15deg);
+	    -ms-transform: rotate(-15deg);
+	        transform: rotate(-15deg);
+}

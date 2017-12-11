@@ -1,0 +1,889 @@
+		<style>
+			.loaders{
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				position: fixed;
+				z-index: 200;
+				background-image: url({$Think.const.SOURCE_PATH}/images/loader-bg.jpg);
+				background-repeat: no-repeat;
+				background-size: 100% 100%;
+			}
+			.loaders-title{
+			    width: 65%;
+			    height: 33%;
+			    background-image: url({$Think.const.SOURCE_PATH}/images/loader-title.png);
+			    background-size: contain;
+			    background-repeat: no-repeat;
+			    margin: 0 auto;
+			    margin-top: 7%;
+			}
+			.loaders-avator{
+			    width: 47%;
+    			height: 37%;
+				background-image: url({$Think.const.SOURCE_PATH}/images/loader-avator.png);
+				background-size: contain;
+				background-repeat: no-repeat;
+				margin: 0 auto;
+			}
+			.loaders-notice{
+				width: 50%;
+				height: 50%;
+				background-image: url({$Think.const.SOURCE_PATH}/images/loader-notice.png);
+				background-repeat: no-repeat;
+				background-size: contain;
+				margin: 0 auto;
+			}
+			.loaders-bars{
+			    width: 76%;
+			    height: 20px;
+			    /*border: 2px solid red;*/
+			    background-image: url({$Think.const.SOURCE_PATH}/images/loading2.png);
+			    background-size: 100% 100%;
+			    border-radius: 10px;
+			    margin: 0 auto;
+			    margin-bottom: 8%;
+			    overflow: hidden;
+			}
+			.progressbar{
+			    width: 0;
+			    height: 100%;
+			    /*background-color: green;*/
+			    background-image: url({$Think.const.SOURCE_PATH}/images/loading1.png);
+			    background-size: 100% 100%;
+			    -webkit-transition: width ease-in 200ms;
+			}
+			.progresstext{
+				position: absolute;
+				top: 30px;
+				right: 0;
+			}
+			.yindao-box{
+				width: 100%;
+				height: 100%;
+				position: fixed;
+				z-index: 198;
+			}
+			.swiper-container{
+				width: 100%;
+				height: 100%;
+			}
+			.swiper-wrapper{
+				width: 100%;
+				height: 100%;
+			}
+			.swiper-slide{
+				width: 100%;
+				height: 100%;
+				background-size: 100% 100%;
+			}
+			.swiper-slide:nth-of-type(1){
+				background-image: url({$Think.const.SOURCE_PATH}/images/newhelp1.jpg);
+			}
+			.swiper-slide:nth-of-type(2){
+				background-image: url({$Think.const.SOURCE_PATH}/images/newhelp2.jpg);
+			}
+			.swiper-slide:nth-of-type(3){
+				background-image: url({$Think.const.SOURCE_PATH}/images/newhelp3.jpg);
+			}
+			.swiper-slide:nth-of-type(4){
+				background-image: url({$Think.const.SOURCE_PATH}/images/newhelp4.jpg);
+			}
+			.swiper-slide:nth-of-type(5){
+				background-image: url({$Think.const.SOURCE_PATH}/images/newhelp5.jpg);
+			}
+			.swiper-slide:nth-of-type(6){
+				background-image: url({$Think.const.SOURCE_PATH}/images/newhelp6.jpg);
+			}
+			.swiper-slide:nth-of-type(7){
+				background-image: url({$Think.const.SOURCE_PATH}/images/newhelp7.jpg);
+			}
+			.help-btn{
+			    position: absolute;
+			    right: 5%;
+			    width: 32%;
+			    height: 7%;
+			    background-image: url({$Think.const.SOURCE_PATH}/images/newhelpbutton.png);
+			    background-size: 100% 100%;
+			    z-index: 199;
+			    top: 5%;
+			}
+			.wawa-icon{
+			    width: 100%;
+			    height: 80%;
+			    background-size: 65% 100%;
+			    background-repeat: no-repeat;
+			    background-position: center center;
+			}
+			.wawa-text{
+			    width: 100%;
+			    height: 20%;
+			    font-size: .25rem;
+			    text-align: center;
+			    line-height: 100%;
+			    padding-top: .07rem;
+			    color: orange;
+			    background: white;
+			    white-space:nowrap;
+			    overflow:hidden;
+			    text-overflow:ellipsis; 
+			}
+			.wawa-num{
+				font-style: normal;
+			}
+			/**
+			 * 11_16  add
+			 */
+			.daojishi{
+				width: 1.22rem;
+				height: 1.22rem;
+				background-image: url({$Think.const.SOURCE_PATH}/images/daojishi.png);
+				background-size: 100% 100%;
+				position: absolute;
+				top: 0;
+				left: 2.258rem;
+				font-size: 0.46rem;
+				color: white;
+				text-align: center;
+				line-height: 1.22rem;
+				-webkit-text-stroke: 1px deeppink;
+			    -webkit-text-fill-color: antiquewhite;
+			    display: none;
+			}
+			.failedTips{
+			    position: absolute;
+			    width: 6.05rem;
+			    height: .9rem;
+			    /*background-image: url({$Think.const.SOURCE_PATH}/images/failed10.png);*/
+			    background-size: 100% 100%;
+			    z-index: 5;
+			    top: 32%;
+			    left: 8%;
+			    display: none;
+			}
+			.roomOnlines{
+			    width: 2rem;
+			    height: .4rem;
+			    position: absolute;
+			    top: 5%;
+			    right: 3%;
+			    font-size: 0.25rem;
+			    color: white;
+			    text-align: center;
+			    line-height: .4rem;
+			    font-weight: 900;
+			    -webkit-text-stroke: 1px deeppink;
+			    -webkit-text-fill-color: white;
+			}
+			.danmu-content{
+				overflow: hidden;
+				width: 100%;
+			    height: 2.4rem;
+			    position: absolute;
+			    top: 12%;
+			}
+			.danmus{
+				position: absolute;
+				display: inline-block;
+				/*width: auto;*/
+				height: 0.5rem;
+				color: white;
+				line-height: 0.5rem;
+				background-color: rgba(83,83,83,0.57);
+				border-radius: 0.15rem;
+				font-size: 0.23rem;
+			    padding: 0 .2rem;
+			    right: -200%;
+			    opacity: .75;
+			}
+			.danmu-move{
+				animation: fashe 9s linear;
+				-webkit-animation: fashe 9s linear;
+			}
+			@-webkit-keyframes fashe{
+				from{right: -200%;}
+				to{right: 100%;}
+			}
+			@keyframes fashe{
+							from{right: -200%;}
+							to{right: 100%;}
+						}
+			.pink{
+				background-color: rgba(236,92,155,0.57);
+			}
+			.set-box{
+				position: absolute;
+			    width: 46%;
+			    left: 27%;
+			    top: 30%;
+			    height: 33%;
+				z-index: 26;
+				background-size: 100% 100%;
+				background-repeat: no-repeat;
+				background-position: center center;
+				background-image: url({$Think.const.SOURCE_PATH}/images/ban.png);
+				display: flex;
+				flex-direction: column;
+				justify-content: space-around;
+   	 			align-items: center;
+			}
+			.sets{
+				width: 60%;
+				height: 20%;
+				background-size: 100% 100%;
+			}
+			.set-music{
+				background-image: url({$Think.const.SOURCE_PATH}/images/off-music.png);
+			}
+			.set-music-off{
+				background-image: url({$Think.const.SOURCE_PATH}/images/open-music.png);
+			}
+			.set-danmu{
+				background-image: url({$Think.const.SOURCE_PATH}/images/off-danmu.png);
+			}
+			.set-danmu-off{
+				background-image: url({$Think.const.SOURCE_PATH}/images/open-danmu.png);
+			}
+			.set-faqs{
+				background-image: url({$Think.const.SOURCE_PATH}/images/faqs-btn.png);
+			}
+			.set-quit{
+				background-image: url({$Think.const.SOURCE_PATH}/images/quit-btn.png);
+			}
+			.del2{
+				width: 0.252rem;
+				height: 0.252rem;
+				background-image: url({$Think.const.SOURCE_PATH}/images/del2.png);
+				background-size: 100% 100%;
+				position: absolute;
+				right: 3%;
+    			top: 3%;
+			}
+			.faq-box{
+				background-image: url({$Think.const.SOURCE_PATH}/images/faq-bg.png);
+				display: none;
+				top: -6%;
+			    left: 5%;
+			    width: 90%;
+			    height: 100%;
+			}
+			.faq-content{
+			    width: 86%;
+			    height: 55%;
+			    margin: 0 auto;
+			    margin-top: 3.5rem;
+			    overflow: auto;
+			    color: #9d662d;
+			    font-size: 0.3rem;
+			    line-height: 1.3;
+			    padding: 0 .1rem;
+			    padding-left: .3rem;
+			}
+			.change-box{
+				background-image: url({$Think.const.SOURCE_PATH}/images/change-bg.png);
+				display: none;
+				padding-top: 40%;
+			}
+			.change-m-wawa {
+		        float: left;
+			    width: 37%;
+			    height: 34%;
+			    /* background-image: url(../images/pics.png); */
+			    background-size: 100% 100%;
+			    /* margin-top: 42%; */
+			    margin-left: 9%;
+			    margin-bottom: 7%;
+			    border: 2px orange solid;
+			    border-radius: 16px;
+			    overflow: hidden;
+			    display: none;
+			    position: relative;
+			}
+			.change-wawa-icon {
+			    width: 100%;
+			    height: 75%;
+			    background-size: 100% 100%;
+			}
+			.change-wawa-text {
+		        width: 100%;
+				height: 25%;
+				font-size: .2rem;
+				text-align: center;
+				padding-top: .07rem;
+				color: orange;
+				background: white;
+				line-height: 1.3;
+			}
+			.change-btn{
+		        float: right;
+			    width: 1.74rem;
+			    height: 0.68rem;
+			    margin: 0 auto;
+			    background-image: url({$Think.const.SOURCE_PATH}/images/change-btn.png);
+			    background-size: 100% 100%;
+			    margin-right: 37%;
+			    position: relative;
+			    bottom: 21%;
+			}
+			.change-content{
+			    width: 100%;
+    			height: 100%;
+			}
+			.control-mask{
+			    width: 100%;
+			    height: 100%;
+			    position: absolute;
+			    z-index: 3;
+			    display: none;
+			}
+			.width-0{
+				width: 0;
+			}
+			.tiqu-content{
+				height: 56%;
+    			overflow: auto;
+			}
+			.change-wawa-num,.change-wawa-size{
+				font-style: normal;
+			}
+			.catch-records-nickname{
+				font-weight: 900;
+			}
+			
+			.bars{
+				background-image: url({$Think.const.SOURCE_PATH}/images/bars.gif);
+			}
+			.announce-box{
+				background-image: url({$Think.const.SOURCE_PATH}/images/notice-bg.png);
+				display: none;
+				/*display: block;*/
+			}
+			.announce-content-box{
+		        width: 80%;
+			    height: 63%;
+			    z-index: 26;
+			    background-size: 100% 100%;
+			    background-repeat: no-repeat;
+			    background-position: center center;
+			    background-image: url({$Think.const.SOURCE_PATH}/images/ban.png);
+			    margin: 0 auto;
+			    margin-top: 40%;
+		        padding-top: 5%;
+		        overflow: auto;
+			}
+			.announce-content{
+			    width: 92%;
+			    z-index: 26;
+			    background-size: 100% 100%;
+			    background-repeat: no-repeat;
+			    background-position: center center;
+			    background-image: url({$Think.const.SOURCE_PATH}/images/announce-bg.png);
+			    margin: 0 auto;
+			    color: #9d662d;
+		        padding: 7% 4%;
+		        margin-bottom: 3%;
+			}
+			.announce-title{
+				font-size: 0.36rem;
+				font-weight: 900;
+			    margin-bottom: 4%;
+			}
+			.announce-desc{
+				font-size: 0.26rem;
+			}
+			.roomCounts{
+			    width: 2.2rem;
+			    height: .76rem;
+			    position: absolute;
+			    background: #F1ACEB;
+			    right: 1.5%;
+			    border-bottom-left-radius: 0.1rem;
+			    border-top-right-radius: .3rem;
+			}
+			.roomCounts-t{
+			    margin-top: .1rem;
+    			margin-left: .1rem;
+			}
+			.roomCounts-b{
+	    	    width: 87%;
+			    color: #54395A;
+			    text-align: center;
+			    line-height: .4rem;
+			    font-weight: 900;
+			    /*-webkit-text-stroke: .5px deeppink;
+			    -webkit-text-fill-color: white;*/
+			    font-size: 0.2rem;
+			    /*margin-top: 0.55rem;*/
+			}
+			.room-icon{
+			    width: 0.38rem;
+			    height: .38rem;
+			    /*background: red;*/
+			   	background-size: 100% 100%;
+			    float: left;
+			    margin-right: .1rem;
+			}
+			.wawa-message-enter{
+				width: 1.15rem;
+				height: 1.17rem;
+				background-size: 100% 100%;
+				background-image: url({$Think.const.SOURCE_PATH}/images/wawa-message.png);
+				position: relative;
+			    top: -7%;
+			    right: 6%;
+			    z-index: 6;
+			    float: right;
+			}
+			.wawamsg-box{
+				background-image: url({$Think.const.SOURCE_PATH}/images/wawamsg-bg.png);
+			}
+			.wawamsg-box-t{
+			    width: 72%;
+			    height: 6%;
+			    display: flex;
+			    margin: 0 auto;
+			    margin-top: 40%;
+			    justify-content: space-around;
+			    -webkit-justify-content: space-around;
+			}
+			.wawamsg-box-t>div {
+				display: block;
+			    width: 48%;
+			    height: 100%;
+			    background-size: 100% 100%;
+			}
+			.catch-records{
+				background-image: url({$Think.const.SOURCE_PATH}/images/catchre.png);
+			}
+			.catch-records-off{
+				background-image: url({$Think.const.SOURCE_PATH}/images/catchre-off.png);
+			}
+			.high-wawas{
+				background-image: url({$Think.const.SOURCE_PATH}/images/wawahigh.png);
+			}
+			.high-wawas-off{
+				background-image: url({$Think.const.SOURCE_PATH}/images/wawahigh-off.png);
+			}
+			.wawamsg-box-b{
+			    width: 85%;
+			    height: 56%;
+			    background-image: url({$Think.const.SOURCE_PATH}/images/ban.png);
+			    background-size: 100% 100%;
+			    margin: 0 auto;
+			}
+			.wawamsg-box-b>div{
+				width: 100%;
+				height: 100%;
+				overflow: auto;
+			}
+			.catch-records-content{
+			    display: -webkit-box;
+			    display: -ms-flexbox;
+			    display: flex;
+			    -ms-flex-pack: distribute;
+			    justify-content: space-around;
+			    -webkit-justify-content: space-around;
+			    -webkit-align-items: center;
+			    width: 100%;
+			    height: 20%;
+			    padding-bottom: 3px;
+			    background-image: url({$Think.const.SOURCE_PATH}/images/line.png);
+			    background-repeat: no-repeat;
+			    background-position: bottom center;
+			    background-size: 85%;
+			    padding-top: .1rem;
+			    font-size: .28rem;
+			    color: #A1673F;
+			}
+			.catch-records-icon{
+				width: .64rem;
+			    height: .64rem;
+			    /*background: red;*/
+			    background-size: 100% 100%;
+			    background-image: url(http://h5test02.zhuoyi.com:18808/ufo_catcher/Public/home/images/wechat-icon.png);
+			}
+			.catch-records-text{
+			    width: 40%;
+			    height: .68rem;
+			    /* background: red; */
+			    margin-left: -0.4rem;
+			    white-space: nowrap;
+			    overflow: hidden;
+			    text-overflow: ellipsis;
+			}
+			.catch-records-time{
+			    width: 30%;
+			    height: .64rem;
+			    line-height: .64rem;
+			    /* background: red; */
+			    /* font-size: 0.3rem; */
+			    text-align: -webkit-right;
+			    margin-left: -0.6rem;
+			}
+			.catch-records-name{
+			    font-size: .1rem;
+	    		display: inline-block;
+	    		color: #FA7298;
+			}
+			.zhuadao{
+				font-size: .1rem;
+				display: inline-block;
+			}
+			.high-wawas-content{
+			    width: 80%;
+			    height: 75%;
+			    border: 3px orange solid;
+			    border-radius: .2rem;
+			    margin: 0 auto;
+			    margin-top: .5rem;
+			    overflow: hidden;
+    			color: #A1673F;
+			}
+			.high-wawas-icon{
+			    width: 100%;
+			    height: 81%;
+			    background-size: 100% 100%;
+			    background-repeat: no-repeat;
+			}
+			.high-wawas-name{
+			    width: 65%;
+			    /* height: 100%; */
+			    font-size: .35rem;
+			    line-height: 2.3;
+			    /* display: inline-block; */
+			    float: left;
+			    padding-left: .2rem;
+			}
+			.high-wawas-size{
+			    float: right;
+			    width: 35%;
+			    /* height: 100%; */
+			    display: inline-block;
+			    font-size: .26rem;
+			    text-align: -webkit-right;
+			    padding-right: .3rem;
+			    line-height: 3.5;
+			}
+			.speak-pop{
+			    position: absolute;
+			    width: .77rem;
+			    height: .77rem;
+			    background-size: 100% 100%;
+			    font-size: .2rem;
+			    text-align: center;
+			    line-height: .77rem;
+			    right: -.35rem;
+			    top: -.35rem;
+			    z-index: 12;
+			}
+			.upface1{
+				background-image: url({$Think.const.SOURCE_PATH}/images/up1.png);
+				z-index: 20;
+			}
+			.upface2{
+				background-image: url({$Think.const.SOURCE_PATH}/images/up2.png);
+				z-index: 20;
+			}
+			.upface3{
+				background-image: url({$Think.const.SOURCE_PATH}/images/up3.png);
+				z-index: 20;
+			}
+			.upface4{
+				background-image: url({$Think.const.SOURCE_PATH}/images/up4.png);
+				z-index: 20;
+			}
+			.upface5{
+				background-image: url({$Think.const.SOURCE_PATH}/images/up5.png);
+				z-index: 20;
+			}
+			.downface1{
+				background-image: url({$Think.const.SOURCE_PATH}/images/down1.png);
+			}
+			.downface2{
+				background-image: url({$Think.const.SOURCE_PATH}/images/down2.png);
+			}
+			.downface3{
+				background-image: url({$Think.const.SOURCE_PATH}/images/down3.png);
+			}
+			.downface4{
+				background-image: url({$Think.const.SOURCE_PATH}/images/down4.png);
+			}
+			.downface5{
+				background-image: url({$Think.const.SOURCE_PATH}/images/down5.png);
+			}
+			.stay1{
+				background-image: url({$Think.const.SOURCE_PATH}/images/stay1.png);
+			}
+			.stay2{
+				background-image: url({$Think.const.SOURCE_PATH}/images/stay2.png);
+			}
+			.stay3{
+				background-image: url({$Think.const.SOURCE_PATH}/images/stay3.png);
+			}
+			.stay4{
+				background-image: url({$Think.const.SOURCE_PATH}/images/stay4.png);
+			}
+			.stay5{
+				background-image: url({$Think.const.SOURCE_PATH}/images/stay5.png);
+			}
+			.stay6{
+				background-image: url({$Think.const.SOURCE_PATH}/images/stay6.png);
+			}
+			.stay7{
+				background-image: url({$Think.const.SOURCE_PATH}/images/stay7.png);
+			}
+			.stay8{
+				background-image: url({$Think.const.SOURCE_PATH}/images/stay8.png);
+			}
+			.act{
+				z-index: 11;
+			}
+			.top-text{
+				width: auto;
+				text-align: center;
+			}
+			.mask-box{
+				background-image:url({$Think.const.SOURCE_PATH}/images/mask-bg.png);
+			}
+			.complete-box{
+				background-image:url({$Think.const.SOURCE_PATH}/images/mask-complete-bg.png);
+			}
+			.complete-box-content{
+		 	    width: 80%;
+			    height: 6.45rem;
+			    margin: 0 auto;
+			    background-image: url(/ufo_catcher/Public/home/images/ban.png);
+			    background-size: 100% 100%;
+			    margin-top: 2.8rem;
+			    padding-top: .5rem;
+		        color: #9d662d;
+			}
+			.complete-icon{
+			    width: 3.3rem;
+			    height: 3.3rem;
+			    /*background: gray;*/
+			    margin: 0 auto;
+			    border-radius: .2rem;
+			    background-size: 100% 100%;
+			}
+			.complete-title{
+			    font-size: .33rem;
+			    text-align: center;
+			    font-weight: 900;
+			    margin: .1rem 0;
+			}
+			.complete-text{
+			    font-size: .24rem;
+			    text-align: center;
+			    margin-bottom: .5rem;
+			}
+			.complete-btn{
+			    background-image: url({$Think.const.SOURCE_PATH}/images/complete-btn.png);
+			    background-size: 100% 100%;
+			    width: 2.7rem;
+			    height: 1rem;
+			    margin: 0 auto;
+			}
+			.mask-bar-bg{
+		        width: 80%;
+			    height: .45rem;
+			    margin: 0 auto;
+			    background-image: url(/ufo_catcher/Public/home/images/mask-barbg.png);
+			    background-size: 100% 100%;
+			    margin-top: .1rem;
+			    border-radius: 3.1rem;
+			    position: relative;
+			    overflow: hidden;
+			    border: .04rem #D9A81F solid;
+			}
+			.mask-bar{
+			    width: 100%;
+			    height: 110%;
+			    background-image: url(/ufo_catcher/Public/home/images/mask-bar.png);
+			    background-size: 100% 100%;
+			    position: relative;
+			    top: -5%;
+			    left: -100%;
+			}
+			.bar-score{
+			    width: 2rem;
+			    height: 100%;
+			    padding-left: .2rem;
+			    font-size: .3rem;
+			    -webkit-text-stroke: 1px lawngreen;
+			    -webkit-text-fill-color: white;
+			    line-height: .4rem;
+			    font-weight: 900;
+			    position: absolute;
+			    z-index: 1;
+			}
+			.mask-content-box{
+				width: 80%;
+				height: 5.7rem;
+				margin: 0 auto;
+			    background-image: url({$Think.const.SOURCE_PATH}/images/ban.png);
+			    background-size: 100% 100%;	
+		        margin-top: .2rem;
+		        overflow: auto;
+		        padding-top: .25rem;
+			}
+			.mask-content{
+			    width: 92%;
+			    height: 18%;
+			    background-image: url({$Think.const.SOURCE_PATH}/images/announce-bg.png);
+			    background-size: 100% 100%;
+			    margin: 0 auto;
+			    margin-bottom: .05rem;
+			    display: flex;
+			    align-items: center;
+			    justify-content: space-around;
+		        font-size: .2rem;
+		        color: #9d662d;
+			}
+			.mask-icon{
+			    background-size: 100% 100%;
+			    width: .46rem;
+			    height: .51rem;
+			}
+			.mask-text{
+				width: 60%;
+			}
+			.mask-title{
+			    font-size: .25rem;
+			    margin-bottom: .05rem;
+			    font-weight: 900;
+			}
+			.mask-score{
+				
+			}
+			.mask-coin{
+				
+			}
+			.mask-btn{
+			    width: 1rem;
+			    height: .6rem;
+			    background-size: 100% 100%;
+			    text-align: center;
+			    line-height: .6rem;
+			    font-size: .25rem;
+			    font-weight: 900;
+			}
+			.mask-status0{
+				background-image: url({$Think.const.SOURCE_PATH}/images/mask-status0.png);
+			}
+			.mask-status1{
+				background-image: url({$Think.const.SOURCE_PATH}/images/mask-status1.png);
+			}
+			.mask-enter{
+			    position: absolute;
+			    width: 1rem;
+			    height: auto;
+			    top: 3.3rem;
+			    background-color: rgba(236,123,119,.7);
+			    z-index: 6;
+			    border: 1px #CD9693 solid;
+			    border-left: none;
+			    border-top-right-radius: 10px;
+			    border-bottom-right-radius: 10px;
+			    padding-top: .2rem;
+			}
+			.mask-enter>div{
+			    width: .8rem;
+			    height: .8rem;
+			    margin: 0 auto;
+			    margin-bottom: .2rem;
+			    background-size: 100% 100%;
+			}
+			.task-btn{
+				background-image: url({$Think.const.SOURCE_PATH}/images/task-btn.png);
+			}
+			.start{
+				width: 3.59rem;
+				height: 1.42rem;
+				background-image: url({$Think.const.SOURCE_PATH}/images/start1.png);
+			}
+			.change{
+				width: 1.59rem;
+				height: 1.2rem;
+				margin-right: 0;
+				background-image: url({$Think.const.SOURCE_PATH}/images/btn-change1.png);
+			}
+			.move-board{
+				width: 3.51rem;
+			    height: 2.15rem;
+			    -webkit-transform: scale(.9);
+			    background-image: url({$Think.const.SOURCE_PATH}/images/board-bg1.png);
+			}
+			.catch{
+				width: 2.45rem;
+			    height: 1.79rem;
+		        background-image: url({$Think.const.SOURCE_PATH}/images/btn-catch1.png);
+			}
+			.move-left {
+			    width: 1.1rem;
+			    height: 0.9rem;
+			    background-image: none;
+			    top: 24%;
+			    left: -3%;
+			}
+			.move-top {
+			    width: 1.1rem;
+			    height: 0.9rem;
+			    background-image: none;
+			    top: -4%;
+			    left: 30%;
+			}
+			.move-right {
+			    width: 1.1rem;
+			    height: 0.9rem;
+			    left: 62%;
+			    top: 21%;
+			    background-image: none;
+			}
+			.move-bottom {
+			    width: 1.1rem;
+			    height: 0.9rem;
+			    background-image: none;
+			    bottom: 6%;
+			    left: 29%;
+			}
+			.icon-danmu{
+				position: absolute;
+				width: 90%;
+			    height: auto;
+			    top: 12%;
+			    background: #f42295;
+				opacity: .65;
+				font-size: 0.24rem;
+				color: white;
+				text-align: center;	
+				border: 2px #f42295 solid;
+				left: 5%;
+				border-radius: 10px;
+				display: none;
+			}
+			.icon-danmu-ava{
+				position: absolute;
+			    width: .56rem;
+			    height: .56rem;
+			    display: grid;
+			    top: -.45rem;
+			    left: .8rem;
+			    display: block;
+			    margin-left: 6%;
+			    background-size: 100% 100%;
+			}
+			.icon-danmu-content{
+				line-height: 2;
+			}
+			.hot-icon{
+			    width: .8rem;
+			    height: .35rem;
+			    /* background: red; */
+			    position: absolute;
+			    top: 13px;
+			    right: 0;
+			    background-size: 100% 100%;
+			}
+		</style>

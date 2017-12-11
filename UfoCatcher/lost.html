@@ -1,0 +1,60 @@
+<html>
+	<head>
+		<title>{$title}</title>
+	</head>
+	<body>	
+		<pre>当前测试    : {$title}</pre>
+		<a href="{$nestTest}" target="_blank">下一个测试</a>
+	</body>
+	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+	<script>
+		function append(level, msg) {
+			if(level == "info"){
+				$("body").append('<div>[' +level +'] '+ msg +'</div>')
+			}
+
+			if(level == "error"){
+				$("body").append('<div style="color:red">[' +level +'] '+ msg +'</div>')
+			}
+			
+			if(level == "success"){
+				$("body").append('<div style="color:green">[' +level +'] '+ msg +'</div>')
+			}
+		}
+
+		function getUrl(testCase) {
+			return "http://h5test02.zhuoyi.com:18808/ufo_catcher/index.php/Home/Catch/lost";
+		}
+
+		function assert(testCase, code) {
+			if(code === 10001){
+				append('success', 'code =' + 10001)
+			} else {
+				append('error', 'code !=' + 10001)
+			}
+		}
+
+		var data = {
+			"user_id" : {$userId}, 
+			"ufo_id" : {$ufoId}, 
+		}
+
+		alert(1)
+		$.ajax({ 
+			url: getUrl(testCase),
+			method: 'POST',
+			data: data,
+			success: function(data){
+				console.log(data);
+				var res = JSON.parse(data);
+				append("info", data)
+				assert(testCase, res.error);
+
+			},
+			error: function(xhr) {
+				// 导致出错的原因较多，以后再研究
+				alert('error:' + JSON.stringify(xhr));
+			}
+		});
+	</script>
+</html>

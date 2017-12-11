@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>汤姆娃娃机器测试服</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="{$Think.const.SOURCE_PATH}/css/index.css?id=79asdas55aa8797" />
+    <link rel="stylesheet" type="text/css" href="{$Think.const.SOURCE_PATH}/css/toast.css?id=1z2aads555adaszp011" />
+    <link href="https://cdn.bootcss.com/Swiper/4.0.1/css/swiper.min.css" rel="stylesheet">
+    <script src="http://sdk.talkingdata.com/app/h5/v1?appid={$Think.config.TD_APPID}&vn={$Think.config.TD_VN}&vc={$Think.config.TD_VC}&td_channelid={$Think.config.TD_DEFAULT_CHANNEL}"></script>
+    <include file="component_style"/>
+    <style type="text/css">
+    	.shandow-wawa{
+    		background-image: url({$Think.const.SOURCE_PATH}/images/shandow-wawa1.png);
+    	}
+    	.red {
+    		background-image:url({$Think.const.SOURCE_PATH}/images/ssssss1.png);
+    		-webkit-animation:activeScale 1.5s linear infinite;
+    	}
+    	/**
+    	 * @name [绿色阴影抖动动画]
+    	 */
+    	@-webkit-keyframes activeScale {
+    		0% {
+    			-webkit-transform: scale(1);
+    		}
+    		50% {
+    			-webkit-transform: scale(.65);
+    		}
+    		100% {
+    			-webkit-transform: scale(1);
+    		}
+    	}
+    	.sty-2{
+		    width: 1.62rem;
+		    height: 1.76rem;
+		    /*background-image: url({$Think.const.SOURCE_PATH}/images/155X236.png)!important;*/
+	        top: 50%;
+    		left: 8%;
+    	}
+    	.sty-2:nth-of-type(2){
+    		left: 40%;
+    		z-index: 3;
+    	}
+    	.sty-2:nth-of-type(3){
+    		left: 72%;
+    		z-index: 3;
+    	}
+    	.sty-2:nth-of-type(4){
+    		left: 25%;
+		    top: 61%;
+		    z-index: 4;
+    	}
+    	.sty-2:nth-of-type(5){
+		    left: 58%;
+		    top: 61%;
+		    z-index: 4;
+    	}
+    	.sty-2:nth-of-type(6){
+		    left: 35%;
+		    top: 73%;
+		    z-index: 5;
+    	}
+    	.sty-2:nth-of-type(7){
+		    left: 66%;
+		    top: 73%;
+		    z-index: 5;
+    	}
+    	.sty-3{
+		    width: 1.55rem;
+		    height: 2.36rem;
+		    /*background-image: url({$Think.const.SOURCE_PATH}/images/155X236.png)!important;*/
+	        top: 47%;
+    		left: 8%;
+    	}
+    	.sty-3:nth-of-type(2){
+    		left: 40%;
+    		z-index: 3;
+    	}
+    	.sty-3:nth-of-type(3){
+    		left: 72%;
+    		z-index: 3;
+    	}
+    	.sty-3:nth-of-type(4){
+    		left: 25%;
+		    top: 58%;
+		    z-index: 4;
+    	}
+    	.sty-3:nth-of-type(5){
+		    left: 58%;
+		    top: 58%;
+		    z-index: 4;
+    	}
+    	.sty-3:nth-of-type(6){
+		    left: 35%;
+		    top: 70%;
+		    z-index: 5;
+    	}
+    	.sty-3:nth-of-type(7){
+		    left: 66%;
+		    top: 70%;
+		    z-index: 5;
+    	}
+    	.sty-s-4{
+            top: 5.5rem;
+    	}
+    	.sty-s-4:nth-of-type(2){
+		    left: 47%;
+    	}
+    	.sty-s-4:nth-of-type(3){
+		    left: 21%;
+    		top: 78%;
+    	}
+    	.sty-s-4:nth-of-type(4){
+		    left: 65%;
+    		top: 78%;
+    	}
+    	.sty-s-4:nth-of-type(5){
+		    left: 49%;
+    		top: 88%;
+    	}
+    	.sty-s-4:nth-of-type(6){
+		    display: none;
+    	}
+    	.sty-s-4:nth-of-type(7){
+		    display: none;
+    	}
+    	.sty-4{
+		    width: 1.6rem;
+		    height: 2rem;
+		    top: 49%;
+		    left: 9%;
+    	}
+    	.sty-4:nth-of-type(2){
+		    left: 49%;
+    	}
+    	.sty-4:nth-of-type(3){
+	        top: 59%;
+    		left: 23%;
+    	}
+    	.sty-4:nth-of-type(4){
+		    top: 59%;
+    		left: 67%;
+    	}
+    	.sty-4:nth-of-type(5){
+		    top: 69%;
+    		left: 51%;
+    	}
+    	.sty-4:nth-of-type(6){
+		    display: none;
+    	}
+    	.sty-4:nth-of-type(7){
+		    display: none;
+    	}
+    	.mask-score{
+    		display: inline-block;
+    		width: 100%;
+    		overflow: hidden;
+    		text-overflow: ellipsis;
+    		white-space: nowrap;
+    	}
+    </style>
+    <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+</head>
+
+<body>
+		<!--签到部分-->
+		<include file="component_dailytasks"/>
+    	<!--完成任务弹框部分-->
+        <include file="component_mission_complete"/>
+
+        <!--任务部分-->
+        <include file="component_missions"/>
+
+        <!--music 部分-->
+        <include file="component_music"/>
+
+        <!--加载进度条-->
+        <include file="component_process_bar"/>
+
+        <!--引导部分-->
+        <div class="yindao-box">
+            <div class="swiper-container">
+                <div class="help-btn"></div>
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"></div>
+                    <div class="swiper-slide"></div>
+                    <div class="swiper-slide"></div>
+                    <div class="swiper-slide"></div>
+                    <div class="swiper-slide"></div>
+                    <div class="swiper-slide"></div>
+                    <div class="swiper-slide"></div>
+                </div>
+            </div>
+        </div>
+        <!-- 失败TOAST部分 -->
+        <div class="failedTips"></div>
+        <!-- 主区域部分 -->
+        <div class="main-container">
+            <!--顶部轮播-->
+            <div class="top-text">原来一次就中是捡了别人的漏～</div>
+
+            <!--左侧入口区域-->
+            <div class="mask-enter">
+                <div class="task-btn"></div>
+                <div class="new-btn"></div>
+            </div>
+
+            <!--游戏区域-->
+            <div class="game-area">
+                <!--房间人数区域-->
+                <div class="roomCounts">
+                    <div class="roomCounts-t">
+                        <div class="room-icon"></div>
+                        <div class="room-icon"></div>
+                        <div class="room-icon"></div>
+                        <div class="room-icon"></div>
+                        <div class="room-icon"></div>
+                    </div>
+                    <div class="roomCounts-b"></div>
+                </div>
+                <!--<div class="roomOnlines"></div>-->
+                <!---->
+                <div class="daojishi">30</div>
+                <!--头像弹幕部分-->               
+                <!---->
+                <div class="danmu-content">
+                    <!--<div class="danmus"></div>-->
+                </div>
+                <div class="icon-danmu">
+                    <span class="icon-danmu-ava"></span>
+                    <div class="icon-danmu-content"></div>
+                </div>              
+                <!---->
+                <div class="opacity-corner"></div>
+                <!--爪子部分-->
+                <div class="pole">
+                    <div class="gaizi"></div>
+                    <div class="ganzi"></div>
+                    <div class="wheel"></div>
+                    <div class="foot-box">
+                        <div class="foot left"></div>
+                        <div class="foot right"></div>
+                    </div>
+                </div>
+                <!--爪子阴影部分-->
+                <div class="shandow-pole"></div>
+                <!--娃娃阴影部分-->
+                <!--<div class="shandow-wawa-box">
+                    <div class="shandow-wawa"></div>
+                    <div class="shandow-wawa"></div>
+                    <div class="shandow-wawa"></div>
+                    <div class="shandow-wawa"></div>
+                </div>-->
+                <!--娃娃部分-->
+                <!--<div class="wawa-box">
+                    <div class="wawa" data-id="2" data-mcid="1"></div>
+                    <div class="wawa" data-id="2" data-mcid="1"></div>
+                    <div class="wawa" data-id="2" data-mcid="1"></div>
+                    <div class="wawa" data-id="2" data-mcid="1"></div>
+                </div>-->
+            </div>
+            <!--娃娃信息入口-->
+            <div class="wawa-message-enter"></div>
+            <!--两侧灯光装饰部分-->
+            <div class="left-bars bars"></div>
+            <div class="right-bars bars"></div>
+
+            <!--控制台部分-->
+            <div class="control-area">
+                <div class="play-box">
+                    <div class="once">40/次</div>
+                    <div class="start"></div>
+                    <div class="change"></div>
+                </div>
+                <div class="control-box hide">
+                    <div class="move-board">
+                        <div class="control-mask"></div>
+                        <div class="move-left"></div>
+                        <div class="move-top"></div>
+                        <div class="move-right"></div>
+                        <div class="move-bottom"></div>
+                    </div>
+                    <div class="catch"></div>
+                </div>
+            </div>
+
+            <!--底部区域部分-->
+            <div class="bottom-area">
+                <div class="person-text">
+                    <div class="name"></div>
+                    <div class="money"></div>
+                </div>
+                <div class="recharge icon"></div>
+                <div class="package icon"></div>
+                <div class="share icon"></div>
+                <div class="set icon"></div>
+            </div>
+        </div><!-- end / main-container-->
+
+        <!--底部蒙版部分-->
+        <div class="mask"></div>
+
+        <!--充值页面弹框部分-->
+        <include file="component_charge_modal"/>
+
+        <!--背包页面弹框部分-->
+        <div class="package-box toast-box">
+            <div class="del package-del"></div>
+            <div class="package-t">
+                <div class="mywawa"></div>
+                <div class="tiqujilu tiqujilu-off"></div>
+            </div>
+            <div class="package-m hide">
+                <div class="package-m-content">
+                    <div class="package-m-title">提取内容</div>
+                    <div class="package-m-title">当前状态</div>
+                </div>
+                <div class="package-m-contentBox">
+                    <!--<div class="package-m-content height-33">
+                        <div>
+                            <div class="package-m-name">胡子馒头狗×1</div>
+                            <div class="package-m-time">2017.11.1 15:59:15</div>
+                        </div>
+                        <div class="package-m-state">1-5天内发货</div>
+                    </div>-->
+                </div>
+            </div>
+            <div class="package-m-2">
+                <!--<div class="package-m-wawa">
+                    <div class="wawa-icon"></div>
+                    <div class="wawa-text">
+                        <i class="wawa-num"></i>
+                    </div>
+                </div>-->
+            </div>
+            <div class="tiqu-btn"></div>
+            <!--提取选择部分-->
+            <div class="package-select hide">
+                <div class="package-m-content">
+                    <div class="package-m-title">提取内容<br /><i style="font-style: normal;font-size: .25rem;font-weight: 100;">请确认提取数量</i></div>
+                </div>
+                
+                <div class="tiqu-content">
+                    <!--<div class="package-m-content height-33">
+                        <div>
+                            <div class="package-m-name">胡子馒头狗×1</div>
+                        </div>
+                        <input type="text" class="spinner"/>
+                    </div>-->
+                </div>
+                
+                <div class="package-m-content" style="position: absolute;bottom: 0;">
+                    <div class="package-m-title font-normal" style="font-size: .25rem;">提取数量不足两个需支付100金币邮费<br />一次提取两个及以上包邮</div>
+                </div>
+            </div>
+            <div class="next-step hide"></div>
+
+            <!--提取信息填写部分-->
+            <div class="package-submit hide">
+                <div class="package-m-content" style="margin-bottom: .5rem;">
+                    <div class="package-m-title">提取内容<br /><i style="font-style: normal;font-size: .25rem;font-weight: 100;">请仔细填写收货地址</i></div>
+                </div>
+                <div class="submit-list">
+                    <div class="package-m-title">姓名：</div>
+                    <input type="text" placeholder="请输入姓名" value="" class="submit-name" />
+                </div>
+                <div class="submit-list">
+                    <div class="package-m-title">电话：</div>
+                    <input type="text" placeholder="请输入手机号" value="" class="submit-phone" />
+                </div>
+                <div class="submit-list">
+                    <div class="package-m-title">地址：</div>
+                    <textarea name="" rows="" cols="" placeholder="请输入详细地址" class="submit-address"></textarea>
+                </div>
+            </div>
+            <div class="submit hide"></div>
+        </div>
+
+        <!--设置页面弹框部分-->
+        <include file="component_danmu_at_header"/>
+
+        <!--FAQ 部分-->
+        <include file="component_faq"/>
+
+        <!--换机器弹框部分-->
+        <include file="component_ufo_catcher_switcher"/>
+
+        <!--公告 / 消息部分-->
+        <include file="component_message_modal"/>
+
+        <!--娃娃信息弹框部分-->
+        <include file="component_toys_info"/>
+    <!-- <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script> -->
+    <!--获取PHP定义变量部分-->
+    <script type="text/javascript">
+    	//娃娃机器数据
+        var wawaMcid = {$ufos};
+        //娃娃们数据
+        var wawasId = {$ufoToys};
+        //弹幕数据
+        var danmus = {$slogans};
+        
+        for (i in wawaMcid) {
+        	/**
+	         *  uc_category:4  五个娃娃的模版类型 (5个)
+	         *  如果服务端下发数量大于模版数  则 等于 模版数
+	         */
+			if (wawaMcid[i].uc_category === "4") {
+				wawaMcid[i].uc_toys_count = Number(wawaMcid[i].uc_toys_count) > 5 ? "5" : wawaMcid[i].uc_toys_count
+			}
+        }
+    </script>
+    <script src="{$Think.const.SOURCE_PATH}/js/vconsole.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="{$Think.const.SOURCE_PATH}/js/common.js?id=12szzzzzaddz1s1z2skg3aa" type="text/javascript" charset="utf-8"></script>
+    <script src="{$Think.const.SOURCE_PATH}/js/resLoader.js" type="text/javascript" charset="utf-8"></script>
+    <script src="{$Think.const.SOURCE_PATH}/js/config.js?id=1twsdzz21sg1a" type="text/javascript" charset="utf-8"></script>
+    <script src="{$Think.const.SOURCE_PATH}/js/timeago.js?id=1bbtdz1zg2ws1" type="text/javascript" charset="utf-8"></script>
+    <script src="{$Think.const.SOURCE_PATH}/js/index.js?id=11wbsdtaz1gs2gz13" type="text/javascript" charset="utf-8"></script>
+    <script src="{$Think.const.SOURCE_PATH}/js/game.js?id=1z1slss211111skj11111ds111111z1ss1" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+    	
+    	
+    </script>
+</body>
+
+</html>

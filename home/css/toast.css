@@ -1,0 +1,442 @@
+.mask{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: black;
+	opacity: .7;
+	top: 0;
+	left: 0;
+	z-index: 25;
+	display: none;
+}
+.toast-box{
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 5%;
+    width: 6.5rem;
+    height: 10.5rem;
+	z-index: 26;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+.recharge-box{
+	background-image: url(../images/chongzhibg.png);
+}
+.recharge-t{
+    width: 81%;
+    height: 43%;
+    background-image: url(../images/ban.png);
+    background-size: 100% 100%;
+    margin: 0 auto;
+    margin-top: 50%;
+}
+.recharge-t>div{
+	display: flex;
+	justify-content: space-around;
+	-webkit-justify-content: space-around;
+	-webkit-align-items: center;
+    width: 100%;
+    height: 25%;
+    padding-bottom: 3px;
+    background-image: url(../images/line.png);
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: 85%;
+    padding-top: .1rem;
+}
+.recharge-t>div:nth-of-type(4){
+	background-image: none;
+}
+.recharge-b{
+    width: 5.238rem;
+    height: 1.161rem;
+    margin: 0 auto;
+    margin-top: 5%;
+    background-size: 100% 100%;
+    background-image: url(../images/recharge-b.png);
+}
+.del{
+	width: 0.87rem;
+	height: 0.9rem;
+	background-size: 100% 100%;
+    background-image: url(../images/del.png);
+    position: absolute;
+    right: 0;
+    top: 19%;
+}
+.recharge-icon1{
+	width: 1.2rem;
+	height: 0.93rem;
+	background-size: 100% 100%;
+    background-image: url(../images/recharge-icon1.png);
+    -webkit-transform: scale(.9);
+    margin-left: .2rem;
+}
+.recharge-icon2{
+	width: 1.2rem;
+	height: 0.93rem;
+	background-size: 100% 100%;
+    background-image: url(../images/recharge-icon2.png);
+    -webkit-transform: scale(.9);
+    margin-left: .2rem;
+}
+.recharge-icon3{
+	width: 1.2rem;
+	height: 0.93rem;
+	background-size: 100% 100%;
+    background-image: url(../images/recharge-icon3.png);
+    -webkit-transform: scale(.9);
+    margin-left: .2rem;
+}
+.recharge-icon4{
+	width: 1.2rem;
+	height: 0.93rem;
+	background-size: 100% 100%;
+    background-image: url(../images/recharge-icon4.png);
+    -webkit-transform: scale(.9);
+    margin-left: .2rem;
+}
+.recharge-text{
+	width: 2.2rem;
+    height: 0.5rem;
+    color: #b56e06;
+    font-size: 0.25rem;
+    font-weight: 900;
+    line-height: 0.5rem;
+    padding-left: .1rem;
+}
+.recharge-btn1{
+	width: 1.28rem;
+	height: 0.68rem;
+	background-size: 100% 100%;
+    background-image: url(../images/recharge-btn1.png);
+    -webkit-transform: scale(.9);
+    margin-right: .1rem;
+}
+.recharge-btn2{
+	width: 1.28rem;
+	height: 0.68rem;
+	background-size: 100% 100%;
+    background-image: url(../images/recharge-btn2.png);
+    -webkit-transform: scale(.9);
+    margin-right: .1rem;
+}
+.recharge-btn3{
+	width: 1.28rem;
+	height: 0.68rem;
+	background-size: 100% 100%;
+    background-image: url(../images/recharge-btn3.png);
+    -webkit-transform: scale(.9);
+    margin-right: .1rem;
+}
+.recharge-btn4{
+	width: 1.28rem;
+	height: 0.68rem;
+	background-size: 100% 100%;
+    background-image: url(../images/recharge-btn4.png);
+    -webkit-transform: scale(.9);
+    margin-right: .1rem;
+}
+.recharge-text>i{
+	font-style: normal;
+	color: #07ce00;
+}
+.package-box{
+	background-image: url(../images/package-bg.png);
+}
+.package-t{
+    width: 80%;
+    height: 6%;
+    display: flex;
+    margin: 0 auto;
+    margin-top: 49%;
+    justify-content: space-around;
+    -webkit-justify-content: space-around;
+}
+.package-t>div{
+    width: 48%;
+    height: 100%;
+    background-size: 100% 100%;
+}
+.mywawa{
+	background-image: url(../images/mywa.png);
+}
+.tiqujilu{
+	background-image: url(../images/tiqu.png);
+}
+.package-m,.package-m-2{
+    width: 86%;
+    margin: 0 auto;
+    height: 50%;
+    background-size: 100% 100%;
+    background-image: url(../images/ban.png);
+    overflow: auto;
+    position: relative;
+}
+.package-m-2{
+	/*display: flex;
+	-webkit-justify-content: flex-start;*/
+	
+}
+.package-m-content{
+	display: flex;
+	justify-content: space-around;
+	-webkit-justify-content: space-around;
+	-webkit-align-items: center;
+    width: 100%;
+    height: 20%;
+    padding-bottom: 3px;
+    background-image: url(../images/line.png);
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: 85%;
+    padding-top: .1rem;
+}
+.package-m-contentBox{
+    height: 72%;
+    overflow: auto;
+}
+.height-33{
+	height: 29%;
+}
+.package-m-title{
+	font-weight: 900;
+	color: #9d662d;
+	font-size: 0.32rem;
+	text-align: center;
+	line-height: 100%;
+}
+.package-m-state,.package-m-time,.package-m-name{
+	font-size: 0.25rem;
+	color: #a06730;
+}
+.font-normal{
+	font-weight: 100;
+	line-height: 1.5;
+}
+.tiqujilu-off{
+	background-image: url(../images/tiquoff.png);
+}
+.mywawa-off{
+	background-image: url(../images/mywaoff.png);
+}
+.package-m-wawa{
+	float: left;
+	width: 36%;
+	height: 36%;
+	/*background-image: url(../images/pics.png);*/
+	background-size: 100% 100%;
+    margin-top: 6%;
+    margin-left: 9%;
+    border: 2px orange solid;
+    border-radius: 16px;
+    overflow: hidden;
+}
+.tiqu-btn{
+	width: 2.49rem;
+	height: 0.9rem;
+	background-image: url(../images/tiquwawa.png);
+	background-size: 100% 100%;
+	margin: 0 auto;
+	/*margin-top: -.45rem;*/
+	position: relative;
+}
+
+.message_toast {
+	opacity: 0;
+	color: white;
+	background: #000001;
+	font-size: 0.22em;
+	position: fixed;
+	z-index: 9999;
+	display: block;
+	width: 3.8rem;
+	height: 0.68rem;
+	text-align: center;
+	line-height: 0.68rem;
+	border: 0.01rem #eee solid;
+	border-radius: 0.1rem;
+	margin: auto;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	animation: fadeMess 3s linear;
+	-webkit-animation: fadeMess 3s linear;
+}
+
+@keyframes fadeMess {
+	25% {
+		opacity: 1;
+	}
+	75% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+@-webkit-keyframes fadeMess {
+	25% {
+		opacity: 1;
+	}
+	75% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+/**
+ * jq插件css
+ */
+.spinner-sprite, .spinner .decrease, .spinner .decrease[disabled], .spinner .increase, .spinner .value, .spinner .value.passive {
+	background: url('../images/spinner.png') no-repeat
+}
+.spinner {
+	height: 23px;
+	width: 71px;
+	overflow: hidden;
+*zoom:1;
+	-webkit-box-shadow: 0 3px 3px -4px #aaa;
+	-moz-box-shadow: 0 3px 3px -4px #aaa;
+	box-shadow: 0 3px 3px -4px #aaa
+}
+.spinner button, .spinner .value {
+	text-align: center;
+	display: block;
+	float: left;
+	height: 100%;
+	line-height: 25px;
+	margin: 0
+}
+.spinner button {
+	border: none;
+	width: 23px;
+	color: #e5312a;
+	font: 22px Arial bold;
+	padding: 0;
+	outline: none
+}
+.spinner .decrease {
+    background-position: 0px -44px;
+    cursor: pointer;
+    text-indent: -10000px;
+    background-size: 104%;
+}
+.spinner .decrease[disabled] {
+    background-position: 0 -67px;
+    background-size: 104%;
+	cursor: default
+}
+.spinner .increase {
+    background-position: 0 0;
+    cursor: pointer;
+    text-indent: -10000px;
+    background-size: 104%;
+}
+.spinner .value {
+    background-position: -2px -27px;
+    width: 24px;
+    height: 24px;
+    border: none;
+    font-family: Arial;
+    color: #ffffff;
+    padding: 0px;
+    background-size: 113%;
+}
+.spinner .value.passive {
+	background-position: -2px -27px;
+    background-size: 113%;
+	color: #919191
+}
+.spinner .error, .spinner .invalid {
+	background: #aa0000
+}
+/**
+ * jq插件css
+ */
+
+.package-select,.package-submit{
+    width: 86%;
+    margin: 0 auto;
+    height: 6rem;
+    background-size: 100% 100%;
+    background-image: url(../images/ban.png);
+    position: relative;
+    margin-top: 49%
+}
+.next-step{
+	width: 2.49rem;
+    height: 0.9rem;
+    background-image: url(../images/next.png);
+    background-size: 100% 100%;
+    margin: 0 auto;
+    position: relative;
+}
+.submit{
+	width: 2.49rem;
+    height: 0.9rem;
+    background-image: url(../images/submit.png);
+    background-size: 100% 100%;
+    margin: 0 auto;
+    margin-top: -.45rem;
+    position: relative;
+}
+.submit-name{
+	background-image: url(../images/ban2.png);
+	background-size: 100% 100%;
+	outline: none;
+}
+.submit-list{
+    display: flex;
+    justify-content: space-around;
+    height: 15%;
+}
+.submit-name,.submit-phone,.submit-address{
+	width: 3.5rem;
+    height: .57rem;
+    background-image: url(../images/ban2.png);
+    background-size: 100% 100%;
+    outline: none;
+    border: none;
+    padding-left: .2rem;
+    border-radius: 6px;
+    margin-left: -0.5rem;
+    color: #9d662d;
+    resize: none;
+}
+.submit-address{
+	height: 1.57rem;
+	padding-top: .2rem;
+}
+.wawas-empty{
+    margin: .6rem auto;
+    width: 1.48rem;
+    height: 2.24rem;
+    background-image: url(../images/wawas-empty.png);
+    background-size: 100% 100%;
+}
+.orders-empty{
+    margin: .6rem auto;
+    width: 1.48rem;
+    height: 2.24rem;
+    background-image: url(../images/orders-empty.png);
+    background-size: 100% 100%;
+}
+/**
+ * 11_16
+ */
+.faild1{background-image: url(../images/failed1.png);}
+.faild2{background-image: url(../images/failed2.png);}
+.faild3{background-image: url(../images/failed3.png);}
+.faild4{background-image: url(../images/failed4.png);}
+.faild5{background-image: url(../images/failed5.png);}
+.faild6{background-image: url(../images/failed6.png);}
+.faild7{background-image: url(../images/failed7.png);}
+.faild8{background-image: url(../images/failed8.png);}
+.faild9{background-image: url(../images/failed9.png);}
+.faild10{background-image: url(../images/failed10.png);}
